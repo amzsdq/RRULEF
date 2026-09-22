@@ -1,27 +1,27 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T01:11:53+09:00",
-  "previous_work_end_time": "2026-09-23T01:08:49+09:00",
-  "previous_active_work_sec": 138,
-  "idle_gap_sec": 184,
-  "paired_utilization": 0.4285714286,
+  "actual_start_time": "2026-09-23T01:19:49+09:00",
+  "previous_work_end_time": "2026-09-23T01:12:27+09:00",
+  "previous_active_work_sec": 34,
+  "idle_gap_sec": 442,
+  "paired_utilization": 0.0714285714,
   "pair_valid": true,
   "pair_invalid_reason": null,
-  "active_work_sec": 34,
-  "work_end_time": "2026-09-23T01:12:27+09:00",
-  "handoff_overhead_sec": 6,
-  "run_elapsed_sec": 34,
-  "tasks_completed": 5,
+  "active_work_sec": 151,
+  "work_end_time": "2026-09-23T01:22:20+09:00",
+  "handoff_overhead_sec": 12,
+  "run_elapsed_sec": 151,
+  "tasks_completed": 6,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T01:17:00+09:00",
-  "scheduler_jitter_sec": 113,
+  "scheduled_next_wake": "2026-09-23T01:25:00+09:00",
+  "scheduler_jitter_sec": 169,
   "decision": {
-    "elapsed_sec_at_decision": 34,
+    "elapsed_sec_at_decision": 151,
     "estimated_next_task_sec": 240,
     "handoff_safety_margin_sec": 120,
     "action": "handoff",
-    "reason": "Fresh-read README; closed the predecessor 138s treatment with a valid 184s idle gap (42.86% paired utilization), preserved same-wake useful-work duration as the sole experiment variable, wrote treatment evidence, inspected run inventory, and secured/verified the same enabled recurring continuation before durable-state save. The 240-300s envelope remains an experimental target rather than a fixed rule."
+    "reason": "Fresh-read README; closed a valid predecessor pair with 442s idle and 7.14% paired utilization; preserved same-wake useful-work duration as the sole experiment variable; secured and verified the same enabled recurring continuation before durable-state save; recorded treatment evidence without optimizing scheduler jitter."
   },
-  "evidence_commit": "c0dcc2e484da9ec8c746cffe4cb1b4e785d1d928"
+  "evidence_commit": "0ed56a9c705d5984a6e6a3b83e3e7a8a2158c7b1"
 }
