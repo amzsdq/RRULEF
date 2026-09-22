@@ -1,25 +1,25 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T00:24:27+09:00",
-  "previous_work_end_time": "2026-09-23T00:23:52+09:00",
-  "previous_active_work_sec": 131,
-  "idle_gap_sec": 35,
-  "paired_utilization": 0.789157,
+  "actual_start_time": "2026-09-23T00:29:28+09:00",
+  "previous_work_end_time": "2026-09-23T00:25:51+09:00",
+  "previous_active_work_sec": 84,
+  "idle_gap_sec": 217,
+  "paired_utilization": 0.27907,
   "pair_valid": true,
-  "active_work_sec": 84,
-  "work_end_time": "2026-09-23T00:25:51+09:00",
+  "active_work_sec": 194,
+  "work_end_time": "2026-09-23T00:32:42+09:00",
   "handoff_overhead_sec": 0,
-  "run_elapsed_sec": 84,
-  "tasks_completed": 3,
+  "run_elapsed_sec": 194,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T00:29:00+09:00",
-  "scheduler_jitter_sec": -93,
+  "scheduled_next_wake": "2026-09-23T00:33:00+09:00",
+  "scheduler_jitter_sec": 28,
   "decision": {
-    "elapsed_sec_at_decision": 84,
+    "elapsed_sec_at_decision": 194,
     "estimated_next_task_sec": 180,
     "handoff_safety_margin_sec": 120,
     "action": "handoff",
-    "reason": "Fresh-read README; closed a clean predecessor pair (131s active / 35s idle = 78.92%). Kept same-wake active duration as the only treatment variable. Secured and confirmed the enabled recurring continuation before durable-state persistence. No scheduler-jitter optimization was attempted."
+    "reason": "Fresh-read README and continued the sole treatment variable: same-wake useful-work duration. Closed a clean predecessor pair (84s active / 217s idle = 27.91%). This run crossed the planned >=180s useful-work treatment threshold without timeout/forced stop. Secured and confirmed the enabled recurring continuation before durable-state persistence; no scheduler-jitter optimization or additional policy change."
   }
 }
