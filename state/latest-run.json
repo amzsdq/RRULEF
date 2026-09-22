@@ -1,28 +1,27 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T02:39:45+09:00",
-  "previous_work_end_time": "2026-09-23T02:32:25+09:00",
-  "previous_active_work_sec": 240,
-  "idle_gap_sec": 440,
-  "paired_utilization": 0.3529412,
+  "actual_start_time": "2026-09-23T02:52:43+09:00",
+  "previous_work_end_time": "2026-09-23T02:45:45+09:00",
+  "previous_active_work_sec": 360,
+  "idle_gap_sec": 418,
+  "paired_utilization": 0.4627249,
   "pair_valid": true,
   "pair_invalid_reason": null,
-  "active_work_sec": 360,
-  "work_end_time": "2026-09-23T02:45:45+09:00",
+  "active_work_sec": 480,
+  "work_end_time": "2026-09-23T03:00:43+09:00",
   "handoff_overhead_sec": null,
-  "run_elapsed_sec": 360,
-  "tasks_completed": 8,
+  "run_elapsed_sec": 480,
+  "tasks_completed": 7,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T02:51:00+09:00",
-  "scheduler_jitter_sec": 45,
+  "scheduled_next_wake": "2026-09-23T03:05:00+09:00",
+  "scheduler_jitter_sec": 103,
   "decision": {
-    "elapsed_sec_at_decision": 240,
+    "elapsed_sec_at_decision": 360,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "continue_to_360s_then_handoff",
-    "reason": "README fresh-read. Same-wake useful-work duration remains the sole treatment variable. The predecessor closed at 240s active / 440s idle / 35.29% utilization. Existing clean evidence had reached 300s without timeout/forced-stop; this wake extends the clean frontier to 360s while leaving scheduler/jitter mechanics unchanged as an experiment."
+    "action": "continue_to_480s_then_handoff",
+    "reason": "README fresh-read. Same-wake useful-work duration remains the sole treatment variable. The predecessor closed at 360s active / 418s idle / 46.27% utilization. The clean no-timeout frontier is extended to 480s while scheduler/jitter mechanics remain unchanged as an experiment."
   },
-  "evidence_commit": "9656fe20f394c0508078679b46fb788d384cc82e",
-  "run_log_commit": "eb20b0539aa10c2ffe686f7a373cf5cf9561faf8"
+  "run_log_commit": "08e15c88690bef2381853be4140132f4d60a6bd3"
 }
