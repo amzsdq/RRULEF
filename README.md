@@ -14,26 +14,40 @@
 5. 10분은 runtime timeout 회피를 위한 초기 경험값이며 고정 규칙이 아님.
 
 ## Measure
-각 실행에서 최소한 다음을 기록해 비교합니다.
+각 실행에서 가능한 범위에서 다음을 기록합니다.
 - active_work_sec: 실질 작업 시간
-- idle_gap_sec: 이전 실행 종료 → 다음 실행 시작 공백
-- handoff_overhead_sec: 작업 중단 결정 → 다음 wake 확보까지
-- run_elapsed_sec: 실행 시작 → 종료
+- work_end_time: 실제 실질 작업 종료 시각
+- actual_next_start_time: 다음 실행 실제 시작 시각
+- idle_gap_sec: work_end_time부터 actual_next_start_time까지의 실제 공백
+- handoff_overhead_sec: handoff 결정부터 다음 wake 확보/상태 저장 완료까지
+- run_elapsed_sec: 실행 시작부터 종료까지
 - tasks_completed
 - timeout_or_forced_stop
-- next_wake_sec: 종료 시점 → 다음 예약 시점
+- scheduled_next_wake: 요청한 다음 wake 시각
+- scheduler_jitter_sec: scheduled_next_wake와 실제 다음 시작의 차이. 진단용이며 최적화 목표 자체가 아님.
 
 핵심 평가지표:
-- utilization = active_work_sec / (active_work_sec + idle_gap_sec)
+- utilization: 실질 작업 시간 대비 실질 작업 시간과 실제 idle gap의 합에서 차지하는 비율
 - idle_gap_sec는 작을수록 좋음.
 - timeout/강제중단으로 미완료 작업이 손실되면 실패 비용으로 기록.
 
+## Jitter handling
+스케줄러 지터 자체를 제거하는 것은 목표가 아닙니다. 지터는 외생 변수로 취급합니다.
+최적화 대상은 **이전 실질 작업 종료부터 다음 실제 실행 시작까지의 idle gap**입니다.
+
+따라서:
+- scheduled wake와 actual start 차이는 진단용으로 기록합니다.
+- 수십 초 지터를 줄이기 위해 실질 작업 시간을 희생하지 않습니다.
+- 지터가 존재해도 전체 utilization이 높아지는 handoff/wake 메커니즘을 우선합니다.
+
 ## Optimization loop
 한 번에 한 가지 메커니즘만 바꾸고 baseline과 비교합니다.
+
 우선 실험 후보:
-- 고정 10분 cutoff
-- 최근 실행시간/오버헤드 기반 adaptive cutoff
-- handoff를 cutoff 직전에 하는 방식 vs 다음 wake를 선확보하는 방식
-- 다음 wake 간격 최소화
+- Baseline A: 고정 10분 cutoff
+- Adaptive cutoff: 현재 경과시간, 예상 다음 task 시간, handoff 안전마진을 함께 보고 다음 작업 착수 여부 결정
+- handoff를 cutoff 직전에 하는 방식 vs 다음 wake를 먼저 확보한 뒤 계속 작업하는 방식
+- 실제 idle gap을 가장 작게 만드는 near-future wake 재앵커링 방식
+- timeout 없이 안전하게 사용할 수 있는 실질 작업시간 상한 추정
 
 더 높은 가동률 또는 더 낮은 유휴시간을 만들지 못하는 규칙은 유지하지 않습니다.
