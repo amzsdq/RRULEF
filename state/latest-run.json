@@ -1,29 +1,31 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-22T23:50:31+09:00",
-  "previous_work_end_time": "2026-09-22T23:45:27+09:00",
-  "previous_active_work_sec": 32,
-  "idle_gap_sec": 304,
-  "paired_utilization": 0.0952380952,
-  "previous_scheduled_next_wake": "2026-09-22T23:50:00+09:00",
-  "scheduler_jitter_sec": 31,
-  "active_work_sec": 125,
-  "work_end_time": "2026-09-22T23:52:36+09:00",
-  "handoff_overhead_sec": 2,
-  "run_elapsed_sec": 125,
-  "tasks_completed": 4,
+  "actual_start_time": "2026-09-22T23:51:42+09:00",
+  "previous_work_end_time": "2026-09-22T23:52:36+09:00",
+  "previous_active_work_sec": 125,
+  "idle_gap_sec": null,
+  "paired_utilization": null,
+  "pair_valid": false,
+  "pair_invalid_reason": "predecessor work_end_time is 54 seconds after actual start; overlap/timestamp-finalization inconsistency",
+  "previous_scheduled_next_wake": "2026-09-22T23:54:00+09:00",
+  "scheduler_jitter_sec": null,
+  "active_work_sec": 47,
+  "work_end_time": "2026-09-22T23:52:29+09:00",
+  "handoff_overhead_sec": 1,
+  "run_elapsed_sec": 47,
+  "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-22T23:54:00+09:00",
+  "scheduled_next_wake": "2026-09-22T23:57:00+09:00",
   "decision": {
-    "elapsed_sec_at_decision": 125,
+    "elapsed_sec_at_decision": 46,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "continue-active-duration-treatment-with-secured-handoff",
-    "reason": "Closed the canonical pair, added cross-pair utilization evidence, and kept same-wake useful-work duration as the sole treatment variable. Runtime remained far below the baseline budget; continuation was secured before durable state save."
+    "action": "continue-active-duration-treatment; exclude-overlap-pair",
+    "reason": "Fresh README/state read exposed an invalid negative idle pair. Recorded and analyzed the integrity failure, retained the same active-duration treatment variable, and secured recurring continuation before state save. No cutoff change is justified by an invalid pair."
   },
   "evidence": [
-    "analysis/2026-09-22T2350_active-duration-treatment.md",
-    "analysis/2026-09-22T2350_utilization-evidence.md"
+    "analysis/2026-09-22T2351_overlap-integrity.md",
+    "analysis/2026-09-22T2353_overlap-adjusted-duration-plan.md"
   ]
 }
