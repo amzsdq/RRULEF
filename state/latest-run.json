@@ -1,40 +1,34 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T05:54:43+09:00",
-  "previous_work_end_time": "2026-09-23T05:41:01+09:00",
-  "previous_active_work_sec": 12,
-  "idle_gap_sec": 822,
-  "paired_utilization": 0.014388,
+  "actual_start_time": "2026-09-23T06:07:50+09:00",
+  "previous_work_end_time": "2026-09-23T05:55:46+09:00",
+  "previous_active_work_sec": 63,
+  "idle_gap_sec": 724,
+  "paired_utilization": 0.080051,
   "pair_valid": true,
-  "pair_note": "Observed-only predecessor pair; physical ordering valid. Third recent non-zero post-reanchor pair confirms tens-of-seconds useful work is dominated by boundary idle cost.",
-  "active_work_sec": 63,
-  "work_end_time": "2026-09-23T05:55:46+09:00",
+  "pair_note": "Observed-only predecessor pair; physical ordering valid. Fourth recent non-zero post-reanchor pair. Short voluntary handoff remains dominated by boundary idle cost.",
+  "active_work_sec": 0,
+  "work_end_time": "2026-09-23T06:08:06+09:00",
   "handoff_overhead_sec": 16,
-  "run_elapsed_sec": 63,
-  "tasks_completed": 7,
+  "run_elapsed_sec": 16,
+  "tasks_completed": 2,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T06:07:00+09:00",
-  "scheduler_jitter_sec": 103,
+  "scheduled_next_wake": "2026-09-23T06:19:00+09:00",
+  "scheduler_jitter_sec": 50,
   "decision": {
-    "elapsed_sec_at_decision": 63,
+    "elapsed_sec_at_decision": 0,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "continue-same-variable-next-wake",
-    "reason": "Observed 12s useful work versus 822s idle yields 1.44% utilization. Boundary-cost sensitivity and prior clean 105s evidence both support extending same-wake useful work while safe. Scheduler-jitter handling was not changed. Continuation was secured before durable-state write."
+    "action": "continue-useful-work-short-region-rejected",
+    "reason": "Observed 63s useful work versus 724s idle yields 8.01% utilization. Along with 12s/28s/32s recent pairs and earlier clean 105s evidence, voluntary handoff in the tens-of-seconds region remains economically dominated by boundary idle cost. No scheduler mechanism changed."
   },
   "measurement_guard": {
     "rule": "work_end_time must be an observed completed-work timestamp at or before the state write; active_work_sec must represent completed useful work only",
     "purpose": "prevent projected durations from being misclassified as runtime-frontier evidence"
   },
   "evidence": {
-    "analysis_paths": [
-      "analysis/2026-09-23T0554-boundary-cost-sensitivity.md",
-      "analysis/2026-09-23T0555-duration-evidence-check.md"
-    ],
-    "analysis_commits": [
-      "fdbb7c76b27821a3637cef32cce25d66a4421723",
-      "e754e3d3ccd8bce1dbfad0a0f7fe63b8c4029c8c"
-    ]
+    "analysis_paths": ["analysis/2026-09-23T0608-cutoff-decision-evidence.md"],
+    "analysis_commits": ["b5b4f5a10116e9e9118c22f7462aa94fde324c69"]
   }
 }
