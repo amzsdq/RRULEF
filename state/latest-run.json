@@ -14,8 +14,8 @@
   "active_work_note": "Early substantive tasks in this wake were not individually timestamped. 61.898 sec is the exact sum of five later instrumented task spans only; do not treat it as full-wake active work or cutoff evidence.",
   "work_end_time": "2026-09-23T07:03:00.133615+09:00",
   "handoff_decision_time": "2026-09-23T07:03:06.893171+09:00",
-  "handoff_complete_time": null,
-  "handoff_overhead_sec": null,
+  "handoff_complete_time": "2026-09-23T07:03:27.481471+09:00",
+  "handoff_overhead_sec": 20.588,
   "run_elapsed_sec": 426.134,
   "tasks_completed": 18,
   "timeout_or_forced_stop": false,
@@ -51,6 +51,9 @@
       "analysis/2026-09-23T0702-cutoff-separation-refresh.md",
       "analysis/2026-09-23T0702-early-handoff-recheck.md",
       "analysis/2026-09-23T0702-qualification-status.md"
+    ],
+    "state_commits": [
+      "ab36510152dc608c408e191a17bfdb6f2eca97dd"
     ]
   }
 }
