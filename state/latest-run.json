@@ -1,30 +1,30 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T00:02:53+09:00",
-  "previous_work_end_time": "2026-09-23T00:02:55+09:00",
-  "previous_active_work_sec": 132,
+  "actual_start_time": "2026-09-23T00:04:48+09:00",
+  "previous_work_end_time": "2026-09-23T00:05:47+09:00",
+  "previous_active_work_sec": 174,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_invalid_reason": "overlap: actual start precedes durable predecessor work_end_time by 2 seconds; do not clamp negative idle to zero",
-  "previous_scheduled_next_wake": "2026-09-23T00:05:00+09:00",
-  "scheduler_jitter_sec": -127,
-  "active_work_sec": 174,
-  "work_end_time": "2026-09-23T00:05:47+09:00",
+  "pair_invalid_reason": "overlap: this execution started 59 seconds before the durable predecessor work_end_time; negative idle is invalid and is not clamped",
+  "previous_scheduled_next_wake": "2026-09-23T00:07:00+09:00",
+  "scheduler_jitter_sec": -132,
+  "active_work_sec": 82,
+  "work_end_time": "2026-09-23T00:06:10+09:00",
   "handoff_overhead_sec": 14,
-  "run_elapsed_sec": 174,
+  "run_elapsed_sec": 82,
   "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T00:07:00+09:00",
+  "scheduled_next_wake": "2026-09-23T00:09:00+09:00",
   "decision": {
-    "elapsed_sec_at_decision": 174,
+    "elapsed_sec_at_decision": 82,
     "estimated_next_task_sec": 180,
     "handoff_safety_margin_sec": 120,
-    "action": "handoff-near-180-treatment-boundary",
-    "reason": "Fresh README/state read found a 2-second overlap with the predecessor endpoint, so this pair is excluded rather than clamped. Useful work continued through fresh-read validation, continuation securing, and durable treatment-plan creation. The run reached 174 seconds, close to the >=180-second treatment point, without timeout or forced stop. Starting another estimated 180-second task would add little treatment information relative to handoff risk, so the recurring continuation was secured first and state was saved. No cutoff, jitter, or handoff mechanism was changed."
+    "action": "handoff-after-measurement-integrity-work",
+    "reason": "Fresh README/state read exposed a real overlapping execution: this run started before the predecessor endpoint. The recurring continuation was secured first. Useful work then documented a minimal causal-pair validity guard so negative idle cannot contaminate utilization evidence. The optimization variable remains same-wake active duration; cutoff and jitter mechanisms were not changed."
   },
   "evidence": [
-    "analysis/2026-09-23T0003_active-duration-treatment-plan.md"
+    "analysis/2026-09-23T0005_overlap-root-cause-and-measurement-guard.md"
   ]
 }
