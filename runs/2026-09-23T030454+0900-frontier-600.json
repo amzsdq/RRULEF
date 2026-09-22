@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "experiment": "baseline-a-active-work-duration",
+  "actual_start_time": "2026-09-23T03:04:54+09:00",
+  "previous_work_end_time": "2026-09-23T03:00:43+09:00",
+  "previous_active_work_sec": 480,
+  "idle_gap_sec": 251,
+  "paired_utilization": 0.65663475,
+  "pair_valid": true,
+  "treatment_variable": "same-wake useful-work duration",
+  "target_active_work_sec": 600,
+  "clean_frontier_before_sec": 480,
+  "decision_checkpoint": {
+    "elapsed_sec_at_decision": 480,
+    "estimated_next_task_sec": 120,
+    "handoff_safety_margin_sec": 120,
+    "action": "continue_to_600s_then_handoff",
+    "reason": "Fresh README read. 480s predecessor completed without timeout/forced stop. Only active-work duration is varied; scheduler jitter is diagnostic only. Extending to the initial 600s baseline frontier has high information value and improves utilization when boundary idle is material."
+  },
+  "continuation_secured_first": true,
+  "scheduled_next_wake": "2026-09-23T03:16:00+09:00",
+  "scheduler_jitter_sec_for_this_pair": -6,
+  "notes": "600-second frontier admission evidence. Do not infer scheduler-jitter optimization from this run."
+}
