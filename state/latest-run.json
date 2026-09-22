@@ -1,39 +1,53 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T08:33:54+09:00",
-  "previous_work_end_time": "2026-09-23T08:23:11+09:00",
-  "previous_active_work_sec": 55,
-  "idle_gap_sec": 643,
-  "paired_utilization": 0.07879656160458453,
-  "pair_valid": true,
-  "pair_note": "Observed predecessor work_end and actual next start; 55/(55+643)=7.8797%. Another valid short-run boundary sample, not an optimal-cutoff estimate.",
-  "active_work_sec": 33,
+  "actual_start_time": "2026-09-23T08:42:06+09:00",
+  "previous_work_end_time": "2026-09-23T08:34:27+09:00",
+  "previous_active_work_sec": 33,
+  "idle_gap_sec": 459,
+  "paired_utilization": null,
+  "pair_valid": false,
+  "pair_note": "Boundary idle is directly observed, but predecessor active_work_complete=false; do not promote 33/(33+459) as a clean cutoff sample.",
+  "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Conservative observed minimum only: exact interval from wake start 08:33:54 through recurring continuation verification timestamp 08:34:27. Later substantive analysis/write time is deliberately excluded because it lacked exact task-boundary timestamps; run elapsed is not substituted.",
-  "work_end_time": "2026-09-23T08:34:27+09:00",
+  "active_work_note": "This wake performed multiple substantive GitHub analysis/write tasks, but exact per-task start/end timestamps were not available from tool execution metadata. Run elapsed is not substituted for active work; no fabricated precision.",
+  "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 5,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T08:45:00+09:00",
+  "scheduled_next_wake": "2026-09-23T08:54:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
-    "current_elapsed_sec_at_verified_handoff": 33,
     "estimated_next_task_sec": 60,
     "handoff_safety_margin_sec": 120,
     "comparator_sec": 600,
-    "admission_sum_sec": 213,
     "action": "continue_sustained_useful_work_experiment",
-    "reason": "The closed predecessor pair is 55 s active / 643 s idle = 7.8797%. Recent clean idle gaps 393,441,555,634,749,807,643 have median 634 s, making 600 s active approximately 48.62% utilization under that descriptive boundary cost. Short handoffs are saturated low-information evidence; keep only same-wake useful-work duration experimental and obtain a fully instrumented sustained sample toward the existing comparator."
+    "reason": "Fresh README and durable evidence show two idle-cost regimes (post-anchor mean 178.15 s; later short-wake median 634 s), but both imply the same robust direction: avoid manufacturing short handoff boundaries and obtain a fully instrumented sustained same-wake sample. 600 s remains comparator, not doctrine."
   },
   "measurement_guard": {
     "rule": "Timestamp every substantive task from task 1; active_work_sec is the sum of completed task durations, never run elapsed.",
-    "status": "partial-this-wake",
-    "correction": "Only the exact observed minimum is persisted; un-timestamped later work is excluded rather than estimated. Next wake must timestamp task boundaries from task 1."
+    "status": "needs-runtime-timestamp-source",
+    "correction": "Do not report conservative minimum as if complete. If exact task timestamps are unavailable, preserve null and record completed substantive outputs instead."
+  },
+  "experiment_integrity": {
+    "single_changed_variable": "same-wake useful-work duration",
+    "fixed_estimated_next_task_sec": 60,
+    "fixed_handoff_safety_margin_sec": 120,
+    "fixed_comparator_sec": 600,
+    "scheduler_jitter_optimization": false,
+    "premature_handoff_is_failure": true
   },
   "evidence": {
-    "analysis_paths": ["analysis/2026-09-23T0834-recent-boundary-cost-and-frontier.md"],
-    "analysis_commits": ["366f7a3acdca7eb6daa34e82f60af101e32df1b5"]
+    "analysis_paths": [
+      "analysis/2026-09-23T0842-sustained-work-admission.md",
+      "analysis/2026-09-23T0843-boundary-cost-reconciliation.md",
+      "analysis/2026-09-23T0844-sustained-sample-decision.md"
+    ],
+    "analysis_commits": [
+      "915ffc210d97d88889d22bf5d689b6868eb4b9dc",
+      "486317538486a821ac701cbcb2a12b5b6cce039c",
+      "1b46a36faacb74a3edbd5bdcf79863c1fadb6eef"
+    ]
   }
 }
