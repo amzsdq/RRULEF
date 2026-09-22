@@ -1,27 +1,27 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T02:52:43+09:00",
-  "previous_work_end_time": "2026-09-23T02:45:45+09:00",
-  "previous_active_work_sec": 360,
-  "idle_gap_sec": 418,
-  "paired_utilization": 0.4627249,
+  "actual_start_time": "2026-09-23T03:04:54+09:00",
+  "previous_work_end_time": "2026-09-23T03:00:43+09:00",
+  "previous_active_work_sec": 480,
+  "idle_gap_sec": 251,
+  "paired_utilization": 0.65663475,
   "pair_valid": true,
   "pair_invalid_reason": null,
-  "active_work_sec": 480,
-  "work_end_time": "2026-09-23T03:00:43+09:00",
+  "active_work_sec": 600,
+  "work_end_time": "2026-09-23T03:14:54+09:00",
   "handoff_overhead_sec": null,
-  "run_elapsed_sec": 480,
-  "tasks_completed": 7,
+  "run_elapsed_sec": 600,
+  "tasks_completed": 8,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T03:05:00+09:00",
-  "scheduler_jitter_sec": 103,
+  "scheduled_next_wake": "2026-09-23T03:16:00+09:00",
+  "scheduler_jitter_sec": -6,
   "decision": {
-    "elapsed_sec_at_decision": 360,
+    "elapsed_sec_at_decision": 480,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "continue_to_480s_then_handoff",
-    "reason": "README fresh-read. Same-wake useful-work duration remains the sole treatment variable. The predecessor closed at 360s active / 418s idle / 46.27% utilization. The clean no-timeout frontier is extended to 480s while scheduler/jitter mechanics remain unchanged as an experiment."
+    "action": "continue_to_600s_then_handoff",
+    "reason": "README fresh-read. Same-wake useful-work duration remains the sole treatment variable. The predecessor closed at 480s active / 251s idle / 65.66% utilization. Clean no-timeout frontier extended to the initial 600s baseline while scheduler jitter remains diagnostic only."
   },
-  "run_log_commit": "08e15c88690bef2381853be4140132f4d60a6bd3"
+  "run_log_commit": "ee19958768428119730d4d09887348e33ccf9536"
 }
