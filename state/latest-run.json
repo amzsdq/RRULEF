@@ -1,26 +1,27 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T01:01:20+09:00",
-  "previous_work_end_time": "2026-09-23T00:57:07+09:00",
-  "previous_active_work_sec": 130,
-  "idle_gap_sec": 253,
-  "paired_utilization": 0.3394255875,
+  "actual_start_time": "2026-09-23T01:02:57+09:00",
+  "previous_work_end_time": "2026-09-23T01:02:56+09:00",
+  "previous_active_work_sec": 96,
+  "idle_gap_sec": 1,
+  "paired_utilization": 0.9896907216,
   "pair_valid": true,
   "pair_invalid_reason": null,
-  "active_work_sec": 96,
-  "work_end_time": "2026-09-23T01:02:56+09:00",
+  "active_work_sec": 167,
+  "work_end_time": "2026-09-23T01:05:44+09:00",
   "handoff_overhead_sec": 12,
-  "run_elapsed_sec": 96,
-  "tasks_completed": 5,
+  "run_elapsed_sec": 167,
+  "tasks_completed": 6,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T01:05:00+09:00",
-  "scheduler_jitter_sec": 80,
+  "scheduled_next_wake": "2026-09-23T01:07:00+09:00",
+  "scheduler_jitter_sec": -123,
   "decision": {
-    "elapsed_sec_at_decision": 96,
+    "elapsed_sec_at_decision": 167,
     "estimated_next_task_sec": 180,
     "handoff_safety_margin_sec": 120,
     "action": "handoff",
-    "reason": "Fresh-read README and canonical predecessor; closed a valid causal pair with 253 seconds idle after 130 seconds useful work (33.94% paired utilization). Kept the sole experiment variable as same-wake active duration. Secured and verified the same enabled recurring continuation before durable state write; scheduler jitter remains diagnostic only."
-  }
+    "reason": "Fresh-read README and canonical predecessor; closed a valid 1-second causal idle pair after 96 seconds useful work (98.97% paired utilization). Kept same-wake active duration as the sole experiment variable. Secured and verified the same enabled recurring continuation first, then produced a clean-sample utilization envelope showing aggregate 33.42% utilization over five prior clean pairs and that longer active duration mechanically amortizes externally observed idle. No wake/jitter mechanism change."
+  },
+  "evidence_commit": "ddcd08042f267201441b2cc073dff7e8f4551d17"
 }
