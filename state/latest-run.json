@@ -1,27 +1,28 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T01:52:57+09:00",
-  "previous_work_end_time": "2026-09-23T01:37:25+09:00",
-  "previous_active_work_sec": 300,
-  "idle_gap_sec": 932,
-  "paired_utilization": 0.2435064935,
+  "actual_start_time": "2026-09-23T02:03:24+09:00",
+  "previous_work_end_time": "2026-09-23T01:55:27+09:00",
+  "previous_active_work_sec": 150,
+  "idle_gap_sec": 477,
+  "paired_utilization": 0.2392344498,
   "pair_valid": true,
   "pair_invalid_reason": null,
-  "active_work_sec": 150,
-  "work_end_time": "2026-09-23T01:55:27+09:00",
-  "handoff_overhead_sec": 7,
-  "run_elapsed_sec": 150,
-  "tasks_completed": 6,
+  "active_work_sec": 210,
+  "work_end_time": "2026-09-23T02:06:54+09:00",
+  "handoff_overhead_sec": 12,
+  "run_elapsed_sec": 210,
+  "tasks_completed": 8,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T01:54:00+09:00",
-  "scheduler_jitter_sec": 537,
+  "scheduled_next_wake": "2026-09-23T02:14:00+09:00",
+  "scheduler_jitter_sec": 24,
   "decision": {
-    "elapsed_sec_at_decision": 150,
+    "elapsed_sec_at_decision": 210,
     "estimated_next_task_sec": 150,
     "handoff_safety_margin_sec": 120,
     "action": "handoff",
-    "reason": "Fresh-read README; closed the clean 300s-active/932s-idle predecessor pair at 24.35% utilization. Kept same-wake useful-work duration as the sole experiment variable. Secured the same enabled recurring continuation first, then wrote frontier admission and 300-to-600s sensitivity evidence. No prior timeout/forced-stop at 300s, so evidence does not justify lowering the initial 600s envelope; next discriminating sample should approach 600s without changing scheduler/jitter mechanisms."
+    "reason": "Fresh-read README; closed predecessor pair at 150s active / 477s idle / 23.92% utilization. Corrected stale-DTSTART handoff failure by ensuring the same recurring continuation was future-dated and enabled before durable writes. Kept same-wake useful-work duration as the sole experiment variable. 300s remains demonstrated safe with no timeout evidence, so the next discriminating treatment remains approaching ~600s without changing wake/jitter mechanisms."
   },
-  "evidence_commit": "8a1e95f044110d578accf0dd169ccff4f2a21ed2"
+  "evidence_commit": "668b0b5eca8cb5593d0a489b4cbb0d213b0c959e",
+  "run_log_commit": "99906b1cc670a807e9c03f2176f3a9baa2f78517"
 }
