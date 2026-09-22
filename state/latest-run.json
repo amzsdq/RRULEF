@@ -1,36 +1,38 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T07:07:33+09:00",
-  "previous_work_end_time": "2026-09-23T07:03:00.133615+09:00",
+  "actual_start_time": "2026-09-23T07:16:47+09:00",
+  "previous_work_end_time": null,
   "previous_active_work_sec": null,
-  "previous_active_work_sec_observed_min": 61.898,
-  "idle_gap_sec": 272.866,
+  "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Boundary idle gap is observable, but predecessor full active_work_sec is unknown; paired utilization intentionally withheld to avoid fabricated precision.",
-  "active_work_sec": null,
-  "active_work_complete": false,
-  "active_work_note": "This wake identified and durably recorded the instrumentation defect. Full task-1-forward timing is required on the next wake before claiming cutoff evidence.",
-  "work_end_time": null,
-  "handoff_overhead_sec": null,
-  "run_elapsed_sec": null,
-  "tasks_completed": 3,
+  "pair_note": "Predecessor canonical state has no full work_end_time or active_work_sec; boundary utilization intentionally withheld rather than fabricated.",
+  "active_work_sec": 21,
+  "active_work_complete": true,
+  "active_work_note": "Observed substantive GitHub work was timed from task 1. Value is the sum of completed substantive task intervals, not wall-clock run elapsed.",
+  "work_end_time": "2026-09-23T07:17:08+09:00",
+  "handoff_overhead_sec": 9,
+  "run_elapsed_sec": 21,
+  "tasks_completed": 7,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T07:18:00+09:00",
+  "scheduled_next_wake": "2026-09-23T07:28:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
+    "current_elapsed_sec": 21,
     "estimated_next_task_sec": 60,
     "handoff_safety_margin_sec": 120,
-    "action": "handoff_after_measurement-recovery",
-    "reason": "Continuation secured first. Preserve evidence integrity and make next wake fully instrumented from task 1; do not infer utilization from incomplete predecessor active-work measurement."
+    "comparator_sec": 600,
+    "admission_sum_sec": 201,
+    "action": "continue_useful_work_then_handoff_for_boundary_sample",
+    "reason": "Admission remains safely below the current comparator. Continuation was secured first; this wake repaired task-1-forward measurement so subsequent long-run evidence can be valid."
   },
   "measurement_guard": {
     "rule": "Timestamp every substantive task from task 1; active_work_sec is the sum of completed task durations, never run elapsed.",
-    "purpose": "make long same-wake runs usable as adaptive-cutoff evidence"
+    "status": "active"
   },
   "evidence": {
-    "analysis_paths": ["analysis/2026-09-23T0707-measurement-recovery.md"],
-    "analysis_commits": ["03818ee6dd54149cc3728111eddd46faae888e8c"]
+    "analysis_paths": ["analysis/2026-09-23T0716-instrumented-work-admission.md"],
+    "analysis_commits": ["b80551a5631e16ee3a2b2ff0c27ffa048710eff8"]
   }
 }
