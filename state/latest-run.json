@@ -1,34 +1,34 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T06:07:50+09:00",
-  "previous_work_end_time": "2026-09-23T05:55:46+09:00",
-  "previous_active_work_sec": 63,
-  "idle_gap_sec": 724,
-  "paired_utilization": 0.080051,
-  "pair_valid": true,
-  "pair_note": "Observed-only predecessor pair; physical ordering valid. Fourth recent non-zero post-reanchor pair. Short voluntary handoff remains dominated by boundary idle cost.",
-  "active_work_sec": 0,
-  "work_end_time": "2026-09-23T06:08:06+09:00",
-  "handoff_overhead_sec": 16,
-  "run_elapsed_sec": 16,
-  "tasks_completed": 2,
+  "actual_start_time": "2026-09-23T06:19:43+09:00",
+  "previous_work_end_time": "2026-09-23T06:08:06+09:00",
+  "previous_active_work_sec": 0,
+  "idle_gap_sec": 697,
+  "paired_utilization": null,
+  "pair_valid": false,
+  "pair_note": "Predecessor active_work_sec was zero, so this boundary is retained as an idle-gap observation but excluded from useful-work utilization/cutoff inference.",
+  "active_work_sec": 35,
+  "work_end_time": "2026-09-23T06:20:18+09:00",
+  "handoff_overhead_sec": 11,
+  "run_elapsed_sec": 35,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T06:19:00+09:00",
-  "scheduler_jitter_sec": 50,
+  "scheduled_next_wake": "2026-09-23T06:31:00+09:00",
+  "scheduler_jitter_sec": 43,
   "decision": {
-    "elapsed_sec_at_decision": 0,
+    "elapsed_sec_at_decision": 35,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "continue-useful-work-short-region-rejected",
-    "reason": "Observed 63s useful work versus 724s idle yields 8.01% utilization. Along with 12s/28s/32s recent pairs and earlier clean 105s evidence, voluntary handoff in the tens-of-seconds region remains economically dominated by boundary idle cost. No scheduler mechanism changed."
+    "action": "preserve-single-variable-and-require-completed-work-frontier-evidence",
+    "reason": "Recent short-run pairs establish that voluntary handoff in the tens-of-seconds region is costly, but they do not test the intended near-frontier same-wake duration. Scheduler mechanism remains unchanged. Future frontier claims require actually completed useful work and observed work_end_time; projected duration is invalid evidence."
   },
   "measurement_guard": {
     "rule": "work_end_time must be an observed completed-work timestamp at or before the state write; active_work_sec must represent completed useful work only",
     "purpose": "prevent projected durations from being misclassified as runtime-frontier evidence"
   },
   "evidence": {
-    "analysis_paths": ["analysis/2026-09-23T0608-cutoff-decision-evidence.md"],
-    "analysis_commits": ["b5b4f5a10116e9e9118c22f7462aa94fde324c69"]
+    "analysis_paths": ["analysis/2026-09-23T0620-measurement-quality-finding.md"],
+    "analysis_commits": ["03898b12cf10f35d4167b33057ed0e0368469f78"]
   }
 }
