@@ -1,31 +1,29 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-22T23:51:42+09:00",
-  "previous_work_end_time": "2026-09-22T23:52:36+09:00",
-  "previous_active_work_sec": 125,
-  "idle_gap_sec": null,
-  "paired_utilization": null,
-  "pair_valid": false,
-  "pair_invalid_reason": "predecessor work_end_time is 54 seconds after actual start; overlap/timestamp-finalization inconsistency",
-  "previous_scheduled_next_wake": "2026-09-22T23:54:00+09:00",
-  "scheduler_jitter_sec": null,
-  "active_work_sec": 47,
-  "work_end_time": "2026-09-22T23:52:29+09:00",
+  "actual_start_time": "2026-09-22T23:54:30+09:00",
+  "previous_work_end_time": "2026-09-22T23:52:29+09:00",
+  "previous_active_work_sec": 47,
+  "idle_gap_sec": 121,
+  "paired_utilization": 0.2797619,
+  "pair_valid": true,
+  "previous_scheduled_next_wake": "2026-09-22T23:57:00+09:00",
+  "scheduler_jitter_sec": -150,
+  "active_work_sec": 20,
+  "work_end_time": "2026-09-22T23:54:50+09:00",
   "handoff_overhead_sec": 1,
-  "run_elapsed_sec": 47,
-  "tasks_completed": 5,
+  "run_elapsed_sec": 20,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-22T23:57:00+09:00",
+  "scheduled_next_wake": "2026-09-23T00:01:00+09:00",
   "decision": {
-    "elapsed_sec_at_decision": 46,
-    "estimated_next_task_sec": 120,
+    "elapsed_sec_at_decision": 20,
+    "estimated_next_task_sec": 180,
     "handoff_safety_margin_sec": 120,
-    "action": "continue-active-duration-treatment; exclude-overlap-pair",
-    "reason": "Fresh README/state read exposed an invalid negative idle pair. Recorded and analyzed the integrity failure, retained the same active-duration treatment variable, and secured recurring continuation before state save. No cutoff change is justified by an invalid pair."
+    "action": "continue-active-duration-treatment",
+    "reason": "Fresh README/state read produced a valid 121-second causal idle pair after the prior overlap anomaly. No mechanism or cutoff change is justified; preserve the single active-duration treatment variable and target a directly measured >=180-second useful-work block on the next safe run. Recurring continuation was secured before durable state save."
   },
   "evidence": [
-    "analysis/2026-09-22T2351_overlap-integrity.md",
-    "analysis/2026-09-22T2353_overlap-adjusted-duration-plan.md"
+    "analysis/2026-09-22T2354_clean-pair-recovery.md"
   ]
 }
