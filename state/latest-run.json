@@ -1,30 +1,24 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T00:04:48+09:00",
-  "previous_work_end_time": "2026-09-23T00:05:47+09:00",
-  "previous_active_work_sec": 174,
-  "idle_gap_sec": null,
-  "paired_utilization": null,
-  "pair_valid": false,
-  "pair_invalid_reason": "overlap: this execution started 59 seconds before the durable predecessor work_end_time; negative idle is invalid and is not clamped",
-  "previous_scheduled_next_wake": "2026-09-23T00:07:00+09:00",
-  "scheduler_jitter_sec": -132,
-  "active_work_sec": 82,
-  "work_end_time": "2026-09-23T00:06:10+09:00",
-  "handoff_overhead_sec": 14,
-  "run_elapsed_sec": 82,
+  "actual_start_time": "2026-09-23T00:07:05+09:00",
+  "previous_work_end_time": "2026-09-23T00:06:10+09:00",
+  "previous_active_work_sec": 82,
+  "idle_gap_sec": 55,
+  "paired_utilization": 0.59854,
+  "pair_valid": true,
+  "active_work_sec": 35,
+  "work_end_time": "2026-09-23T00:07:40+09:00",
+  "run_elapsed_sec": 35,
   "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T00:09:00+09:00",
+  "scheduled_next_wake": "2026-09-23T00:11:00+09:00",
   "decision": {
-    "elapsed_sec_at_decision": 82,
+    "elapsed_sec_at_decision": 35,
     "estimated_next_task_sec": 180,
     "handoff_safety_margin_sec": 120,
-    "action": "handoff-after-measurement-integrity-work",
-    "reason": "Fresh README/state read exposed a real overlapping execution: this run started before the predecessor endpoint. The recurring continuation was secured first. Useful work then documented a minimal causal-pair validity guard so negative idle cannot contaminate utilization evidence. The optimization variable remains same-wake active duration; cutoff and jitter mechanisms were not changed."
+    "action": "handoff",
+    "reason": "Closed a clean 55-second causal idle pair after the overlap-invalid sample. Continuation was secured first; experiment variable remains same-wake useful-work duration."
   },
-  "evidence": [
-    "analysis/2026-09-23T0005_overlap-root-cause-and-measurement-guard.md"
-  ]
+  "evidence": ["analysis/2026-09-23T0007_clean-successor-after-overlap.md"]
 }
