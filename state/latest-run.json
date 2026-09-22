@@ -1,34 +1,40 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T05:40:49+09:00",
-  "previous_work_end_time": "2026-09-23T05:31:39+09:00",
-  "previous_active_work_sec": 32,
-  "idle_gap_sec": 550,
-  "paired_utilization": 0.054983,
+  "actual_start_time": "2026-09-23T05:54:43+09:00",
+  "previous_work_end_time": "2026-09-23T05:41:01+09:00",
+  "previous_active_work_sec": 12,
+  "idle_gap_sec": 822,
+  "paired_utilization": 0.014388,
   "pair_valid": true,
-  "pair_note": "Observed-only predecessor pair; physical ordering valid. Second consecutive non-zero post-reanchor pair shows boundary idle dominating tens-of-seconds useful work.",
-  "active_work_sec": 12,
-  "work_end_time": "2026-09-23T05:41:01+09:00",
-  "handoff_overhead_sec": 0,
-  "run_elapsed_sec": 12,
-  "tasks_completed": 5,
+  "pair_note": "Observed-only predecessor pair; physical ordering valid. Third recent non-zero post-reanchor pair confirms tens-of-seconds useful work is dominated by boundary idle cost.",
+  "active_work_sec": 63,
+  "work_end_time": "2026-09-23T05:55:46+09:00",
+  "handoff_overhead_sec": 16,
+  "run_elapsed_sec": 63,
+  "tasks_completed": 7,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T05:53:00+09:00",
-  "scheduler_jitter_sec": -131,
+  "scheduled_next_wake": "2026-09-23T06:07:00+09:00",
+  "scheduler_jitter_sec": 103,
   "decision": {
-    "elapsed_sec_at_decision": 12,
+    "elapsed_sec_at_decision": 63,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "continue-on-next-wake-same-variable",
-    "reason": "The observed predecessor pair was 32s useful work versus 550s idle (5.50% utilization). This reinforces that voluntary handoff after only tens of seconds is dominated while safe useful work remains. No jitter mechanism was changed; only same-wake useful-work duration remains the experimental variable. Continuation was secured before durable-state write."
+    "action": "continue-same-variable-next-wake",
+    "reason": "Observed 12s useful work versus 822s idle yields 1.44% utilization. Boundary-cost sensitivity and prior clean 105s evidence both support extending same-wake useful work while safe. Scheduler-jitter handling was not changed. Continuation was secured before durable-state write."
   },
   "measurement_guard": {
     "rule": "work_end_time must be an observed completed-work timestamp at or before the state write; active_work_sec must represent completed useful work only",
     "purpose": "prevent projected durations from being misclassified as runtime-frontier evidence"
   },
   "evidence": {
-    "analysis_path": "analysis/2026-09-23T0540_pair-and-cutoff.md",
-    "analysis_commit": "de2f94de22bc6fc058bec3406944a26d83734465"
+    "analysis_paths": [
+      "analysis/2026-09-23T0554-boundary-cost-sensitivity.md",
+      "analysis/2026-09-23T0555-duration-evidence-check.md"
+    ],
+    "analysis_commits": [
+      "fdbb7c76b27821a3637cef32cce25d66a4421723",
+      "e754e3d3ccd8bce1dbfad0a0f7fe63b8c4029c8c"
+    ]
   }
 }
