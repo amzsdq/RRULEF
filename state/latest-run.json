@@ -1,34 +1,34 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T06:19:43+09:00",
-  "previous_work_end_time": "2026-09-23T06:08:06+09:00",
-  "previous_active_work_sec": 0,
-  "idle_gap_sec": 697,
-  "paired_utilization": null,
-  "pair_valid": false,
-  "pair_note": "Predecessor active_work_sec was zero, so this boundary is retained as an idle-gap observation but excluded from useful-work utilization/cutoff inference.",
-  "active_work_sec": 35,
-  "work_end_time": "2026-09-23T06:20:18+09:00",
-  "handoff_overhead_sec": 11,
-  "run_elapsed_sec": 35,
-  "tasks_completed": 4,
+  "actual_start_time": "2026-09-23T06:33:32+09:00",
+  "previous_work_end_time": "2026-09-23T06:20:18+09:00",
+  "previous_active_work_sec": 35,
+  "idle_gap_sec": 794,
+  "paired_utilization": 0.04222,
+  "pair_valid": true,
+  "pair_note": "Observed predecessor completed-work duration and observed boundary; valid for utilization evidence.",
+  "active_work_sec": 61,
+  "work_end_time": "2026-09-23T06:34:33+09:00",
+  "handoff_overhead_sec": 44,
+  "run_elapsed_sec": 61,
+  "tasks_completed": 7,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T06:31:00+09:00",
-  "scheduler_jitter_sec": 43,
+  "scheduled_next_wake": "2026-09-23T06:46:00+09:00",
+  "scheduler_jitter_sec": 152,
   "decision": {
-    "elapsed_sec_at_decision": 35,
+    "elapsed_sec_at_decision": 61,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "preserve-single-variable-and-require-completed-work-frontier-evidence",
-    "reason": "Recent short-run pairs establish that voluntary handoff in the tens-of-seconds region is costly, but they do not test the intended near-frontier same-wake duration. Scheduler mechanism remains unchanged. Future frontier claims require actually completed useful work and observed work_end_time; projected duration is invalid evidence."
+    "action": "continue-increasing-completed-same-wake-duration",
+    "reason": "The newly closed 35s/794s pair yields only 4.22% utilization. Together with prior short-run evidence, voluntary handoff in the tens-of-seconds region remains dominated by boundary idle cost. No optimum cutoff is inferred; the treatment variable remains completed same-wake useful-work duration only."
   },
   "measurement_guard": {
     "rule": "work_end_time must be an observed completed-work timestamp at or before the state write; active_work_sec must represent completed useful work only",
     "purpose": "prevent projected durations from being misclassified as runtime-frontier evidence"
   },
   "evidence": {
-    "analysis_paths": ["analysis/2026-09-23T0620-measurement-quality-finding.md"],
-    "analysis_commits": ["03898b12cf10f35d4167b33057ed0e0368469f78"]
+    "analysis_paths": ["analysis/2026-09-23T0633-pair.md"],
+    "analysis_commits": ["4e8303d4fb106953e06215e32f1a2b2e46d5610a"]
   }
 }
