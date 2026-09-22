@@ -1,26 +1,29 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-22T23:44:55+09:00",
-  "previous_work_end_time": "2026-09-22T23:40:34+09:00",
-  "previous_active_work_sec": 105,
-  "idle_gap_sec": 261,
-  "paired_utilization": 0.2868852459,
-  "previous_scheduled_next_wake": "2026-09-22T23:42:00+09:00",
-  "scheduler_jitter_sec": 175,
-  "active_work_sec": 32,
-  "work_end_time": "2026-09-22T23:45:27+09:00",
-  "handoff_overhead_sec": 1,
-  "run_elapsed_sec": 32,
-  "tasks_completed": 3,
+  "actual_start_time": "2026-09-22T23:50:31+09:00",
+  "previous_work_end_time": "2026-09-22T23:45:27+09:00",
+  "previous_active_work_sec": 32,
+  "idle_gap_sec": 304,
+  "paired_utilization": 0.0952380952,
+  "previous_scheduled_next_wake": "2026-09-22T23:50:00+09:00",
+  "scheduler_jitter_sec": 31,
+  "active_work_sec": 125,
+  "work_end_time": "2026-09-22T23:52:36+09:00",
+  "handoff_overhead_sec": 2,
+  "run_elapsed_sec": 125,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-22T23:50:00+09:00",
+  "scheduled_next_wake": "2026-09-22T23:54:00+09:00",
   "decision": {
-    "elapsed_sec_at_decision": 31,
-    "estimated_next_task_sec": 90,
+    "elapsed_sec_at_decision": 125,
+    "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "handoff_after_clean-pair-analysis",
-    "reason": "Closed a clean causal pair, quantified fixed-idle leverage, and preserved same-wake active duration as the sole treatment variable. No scheduler-jitter optimization or cutoff-policy change was introduced."
+    "action": "continue-active-duration-treatment-with-secured-handoff",
+    "reason": "Closed the canonical pair, added cross-pair utilization evidence, and kept same-wake useful-work duration as the sole treatment variable. Runtime remained far below the baseline budget; continuation was secured before durable state save."
   },
-  "evidence": "analysis/2026-09-22T2345_active-duration-admission.md"
+  "evidence": [
+    "analysis/2026-09-22T2350_active-duration-treatment.md",
+    "analysis/2026-09-22T2350_utilization-evidence.md"
+  ]
 }
