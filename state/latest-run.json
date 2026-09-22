@@ -1,30 +1,34 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T05:19:20+09:00",
-  "previous_work_end_time": "2026-09-23T04:57:04+09:00",
-  "previous_active_work_sec": 0,
-  "idle_gap_sec": 1336,
-  "paired_utilization": null,
+  "actual_start_time": "2026-09-23T05:31:07+09:00",
+  "previous_work_end_time": "2026-09-23T05:19:48+09:00",
+  "previous_active_work_sec": 28,
+  "idle_gap_sec": 679,
+  "paired_utilization": 0.039604,
   "pair_valid": true,
-  "pair_note": "Boundary is physically valid, but predecessor active_work_sec was the zero-duration re-anchor sample, so paired utilization is intentionally not used for cutoff inference.",
-  "active_work_sec": 28,
-  "work_end_time": "2026-09-23T05:19:48+09:00",
-  "handoff_overhead_sec": 8,
-  "run_elapsed_sec": 28,
-  "tasks_completed": 4,
+  "pair_note": "First post-reanchor pair with non-zero observed predecessor duration. Physical ordering is valid; predecessor active work was observed, not projected.",
+  "active_work_sec": 32,
+  "work_end_time": "2026-09-23T05:31:39+09:00",
+  "handoff_overhead_sec": 0,
+  "run_elapsed_sec": 32,
+  "tasks_completed": 7,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T05:30:00+09:00",
-  "scheduler_jitter_sec": 20,
+  "scheduled_next_wake": "2026-09-23T05:43:00+09:00",
+  "scheduler_jitter_sec": 67,
   "decision": {
-    "elapsed_sec_at_decision": 28,
+    "elapsed_sec_at_decision": 32,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "continue_on_next_wake_with_observed-only-duration",
-    "reason": "README fresh-read; recurring continuation secured before durable-state write. Only observed completed useful work is recorded. No projected frontier claim is made. The next valid pair can compute utilization from this 28-second predecessor sample."
+    "action": "continue-on-next-wake-same-variable",
+    "reason": "The valid 28s/679s predecessor pair yielded only 3.96% utilization, so tens-of-seconds voluntary handoffs are strongly dominated while safe useful work remains. Scheduler lead is not changed; only same-wake useful-work duration remains the experimental variable. Continuation was secured before durable-state write."
   },
   "measurement_guard": {
     "rule": "work_end_time must be an observed completed-work timestamp at or before the state write; active_work_sec must represent completed useful work only",
     "purpose": "prevent projected durations from being misclassified as runtime-frontier evidence"
+  },
+  "evidence": {
+    "analysis_path": "analysis/2026-09-23T0531_observed-pair.md",
+    "analysis_commit": "c220fe3d1cc4f7d2a5707a03c066a66d0622b6be"
   }
 }
