@@ -1,26 +1,26 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T00:43:00+09:00",
-  "previous_work_end_time": "2026-09-23T00:43:39+09:00",
-  "previous_active_work_sec": 151,
+  "actual_start_time": "2026-09-23T00:44:48+09:00",
+  "previous_work_end_time": "2026-09-23T00:45:28+09:00",
+  "previous_active_work_sec": 148,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_invalid_reason": "overlap: actual start precedes previous durable work_end_time by 39 seconds; do not clamp idle to zero",
-  "active_work_sec": 148,
-  "work_end_time": "2026-09-23T00:45:28+09:00",
-  "handoff_overhead_sec": 17,
-  "run_elapsed_sec": 148,
-  "tasks_completed": 6,
+  "pair_invalid_reason": "overlap: actual start precedes previous durable work_end_time by 40 seconds; do not clamp idle to zero",
+  "active_work_sec": 142,
+  "work_end_time": "2026-09-23T00:47:10+09:00",
+  "handoff_overhead_sec": 22,
+  "run_elapsed_sec": 142,
+  "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T00:47:00+09:00",
+  "scheduled_next_wake": "2026-09-23T00:49:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
-    "elapsed_sec_at_decision": 148,
+    "elapsed_sec_at_decision": 142,
     "estimated_next_task_sec": 180,
     "handoff_safety_margin_sec": 120,
     "action": "handoff",
-    "reason": "Fresh-read README, verified canonical predecessor, detected an overlap-invalid causal pair and excluded it rather than clamping idle to zero. Inspected durable analysis/run inventory, kept the sole experimental variable as same-wake active duration, secured the same enabled recurring continuation first, then persisted state. No jitter optimization or cutoff mechanism changed."
+    "reason": "Fresh-read README; verified canonical predecessor; detected another overlap-invalid pair and excluded it rather than manufacturing zero idle. Secured the same enabled recurring continuation first. Kept the sole experimental variable as same-wake active duration and preserved useful-work time instead of optimizing scheduler jitter."
   }
 }
