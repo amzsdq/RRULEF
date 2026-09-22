@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "experiment": "baseline-a-active-work-duration",
+  "actual_start_time": "2026-09-22T23:33:10+09:00",
+  "active_work_sec": 20,
+  "work_end_time": "2026-09-22T23:33:30+09:00",
+  "idle_gap_sec": null,
+  "idle_gap_reason": "No repository-verifiable previous work_end_time was discoverable on this run; do not synthesize a causal pair.",
+  "handoff_overhead_sec": 8,
+  "run_elapsed_sec": 28,
+  "tasks_completed": 3,
+  "timeout_or_forced_stop": false,
+  "scheduled_next_wake": "2026-09-22T23:36:00+09:00",
+  "scheduler_jitter_sec": null,
+  "decision": {
+    "elapsed_sec_at_decision": 20,
+    "estimated_next_task_sec": 60,
+    "handoff_safety_margin_sec": 120,
+    "action": "handoff",
+    "reason": "This run first establishes a canonical durable endpoint so the next wake can measure a clean end-to-start idle gap without repository-wide searching."
+  }
+}
