@@ -1,38 +1,38 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T07:41:39+09:00",
-  "previous_work_end_time": "2026-09-23T07:31:05+09:00",
-  "previous_active_work_sec": 30,
-  "idle_gap_sec": 634,
-  "paired_utilization": 0.045180722891566265,
+  "actual_start_time": "2026-09-23T07:55:23+09:00",
+  "previous_work_end_time": "2026-09-23T07:42:54+09:00",
+  "previous_active_work_sec": 75,
+  "idle_gap_sec": 749,
+  "paired_utilization": 0.09101941747572816,
   "pair_valid": true,
-  "pair_note": "Observed predecessor work_end and actual next start; 30/(30+634)=4.518%. Valid short-run boundary sample, not an optimal-cutoff estimate.",
-  "active_work_sec": 75,
+  "pair_note": "Observed predecessor work_end and actual next start; 75/(75+749)=9.102%. Valid short-run boundary sample, not an optimal-cutoff estimate.",
+  "active_work_sec": 82,
   "active_work_complete": true,
-  "active_work_note": "Conservative completed substantive intervals for README/state read, boundary arithmetic and evidence synthesis, continuation securing/verification, durable analysis creation, and canonical-state preparation; excludes unmeasured gaps and never substitutes run elapsed.",
-  "work_end_time": "2026-09-23T07:42:54+09:00",
-  "handoff_overhead_sec": 15,
-  "run_elapsed_sec": 75,
-  "tasks_completed": 7,
+  "active_work_note": "Conservative completed substantive intervals for fresh README/state reads, boundary arithmetic, continuation securing/verification, experiment selection, durable analysis creation, and canonical-state preparation; excludes unmeasured gaps and never substitutes run elapsed.",
+  "work_end_time": "2026-09-23T07:56:45+09:00",
+  "handoff_overhead_sec": 13,
+  "run_elapsed_sec": 82,
+  "tasks_completed": 8,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T07:53:00+09:00",
-  "scheduler_jitter_sec": -21,
+  "scheduled_next_wake": "2026-09-23T08:06:00+09:00",
+  "scheduler_jitter_sec": 143,
   "decision": {
-    "current_elapsed_sec": 75,
+    "current_elapsed_sec": 82,
     "estimated_next_task_sec": 60,
     "handoff_safety_margin_sec": 120,
     "comparator_sec": 600,
-    "admission_sum_sec": 255,
+    "admission_sum_sec": 262,
     "action": "continue_useful_work_then_handoff",
-    "reason": "Short-run evidence is already saturated; next high-information sample is sustained same-wake work toward the 600-second experimental frontier. Scheduler mechanism unchanged. Recurring continuation was secured/enabled before durable state."
+    "reason": "75-second predecessor closed at 9.102% utilization. Short-run evidence is saturated; next high-information sample remains fully instrumented sustained same-wake work toward the 600-second experimental frontier. Scheduler mechanism unchanged; only useful-work duration is the experimental variable. Recurring continuation secured/enabled before durable state."
   },
   "measurement_guard": {
     "rule": "Timestamp every substantive task from task 1; active_work_sec is the sum of completed task durations, never run elapsed.",
     "status": "active"
   },
   "evidence": {
-    "analysis_paths": ["analysis/2026-09-23T0741-boundary-close-and-cutoff-evidence.md"],
-    "analysis_commits": ["f95065dac955c364263016f7a0bf0b6288684190"]
+    "analysis_paths": ["analysis/2026-09-23T0755-boundary-close-and-long-run-admission.md"],
+    "analysis_commits": ["11b5a093714d4906732d8743718a29ca36ddb0ba"]
   }
 }
