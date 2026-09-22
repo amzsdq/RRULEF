@@ -1,34 +1,34 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T05:31:07+09:00",
-  "previous_work_end_time": "2026-09-23T05:19:48+09:00",
-  "previous_active_work_sec": 28,
-  "idle_gap_sec": 679,
-  "paired_utilization": 0.039604,
+  "actual_start_time": "2026-09-23T05:40:49+09:00",
+  "previous_work_end_time": "2026-09-23T05:31:39+09:00",
+  "previous_active_work_sec": 32,
+  "idle_gap_sec": 550,
+  "paired_utilization": 0.054983,
   "pair_valid": true,
-  "pair_note": "First post-reanchor pair with non-zero observed predecessor duration. Physical ordering is valid; predecessor active work was observed, not projected.",
-  "active_work_sec": 32,
-  "work_end_time": "2026-09-23T05:31:39+09:00",
+  "pair_note": "Observed-only predecessor pair; physical ordering valid. Second consecutive non-zero post-reanchor pair shows boundary idle dominating tens-of-seconds useful work.",
+  "active_work_sec": 12,
+  "work_end_time": "2026-09-23T05:41:01+09:00",
   "handoff_overhead_sec": 0,
-  "run_elapsed_sec": 32,
-  "tasks_completed": 7,
+  "run_elapsed_sec": 12,
+  "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T05:43:00+09:00",
-  "scheduler_jitter_sec": 67,
+  "scheduled_next_wake": "2026-09-23T05:53:00+09:00",
+  "scheduler_jitter_sec": -131,
   "decision": {
-    "elapsed_sec_at_decision": 32,
+    "elapsed_sec_at_decision": 12,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
     "action": "continue-on-next-wake-same-variable",
-    "reason": "The valid 28s/679s predecessor pair yielded only 3.96% utilization, so tens-of-seconds voluntary handoffs are strongly dominated while safe useful work remains. Scheduler lead is not changed; only same-wake useful-work duration remains the experimental variable. Continuation was secured before durable-state write."
+    "reason": "The observed predecessor pair was 32s useful work versus 550s idle (5.50% utilization). This reinforces that voluntary handoff after only tens of seconds is dominated while safe useful work remains. No jitter mechanism was changed; only same-wake useful-work duration remains the experimental variable. Continuation was secured before durable-state write."
   },
   "measurement_guard": {
     "rule": "work_end_time must be an observed completed-work timestamp at or before the state write; active_work_sec must represent completed useful work only",
     "purpose": "prevent projected durations from being misclassified as runtime-frontier evidence"
   },
   "evidence": {
-    "analysis_path": "analysis/2026-09-23T0531_observed-pair.md",
-    "analysis_commit": "c220fe3d1cc4f7d2a5707a03c066a66d0622b6be"
+    "analysis_path": "analysis/2026-09-23T0540_pair-and-cutoff.md",
+    "analysis_commit": "de2f94de22bc6fc058bec3406944a26d83734465"
   }
 }
