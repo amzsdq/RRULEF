@@ -1,27 +1,27 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T01:02:57+09:00",
-  "previous_work_end_time": "2026-09-23T01:02:56+09:00",
-  "previous_active_work_sec": 96,
-  "idle_gap_sec": 1,
-  "paired_utilization": 0.9896907216,
+  "actual_start_time": "2026-09-23T01:06:31+09:00",
+  "previous_work_end_time": "2026-09-23T01:05:44+09:00",
+  "previous_active_work_sec": 167,
+  "idle_gap_sec": 47,
+  "paired_utilization": 0.7803738318,
   "pair_valid": true,
   "pair_invalid_reason": null,
-  "active_work_sec": 167,
-  "work_end_time": "2026-09-23T01:05:44+09:00",
-  "handoff_overhead_sec": 12,
-  "run_elapsed_sec": 167,
-  "tasks_completed": 6,
+  "active_work_sec": 138,
+  "work_end_time": "2026-09-23T01:08:49+09:00",
+  "handoff_overhead_sec": 18,
+  "run_elapsed_sec": 138,
+  "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T01:07:00+09:00",
-  "scheduler_jitter_sec": -123,
+  "scheduled_next_wake": "2026-09-23T01:10:00+09:00",
+  "scheduler_jitter_sec": -29,
   "decision": {
-    "elapsed_sec_at_decision": 167,
-    "estimated_next_task_sec": 180,
+    "elapsed_sec_at_decision": 138,
+    "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
     "action": "handoff",
-    "reason": "Fresh-read README and canonical predecessor; closed a valid 1-second causal idle pair after 96 seconds useful work (98.97% paired utilization). Kept same-wake active duration as the sole experiment variable. Secured and verified the same enabled recurring continuation first, then produced a clean-sample utilization envelope showing aggregate 33.42% utilization over five prior clean pairs and that longer active duration mechanically amortizes externally observed idle. No wake/jitter mechanism change."
+    "reason": "Fresh-read README; closed a valid 47-second causal idle pair after 167 seconds useful work (78.04% paired utilization). Kept same-wake useful-work duration as the sole experiment variable, secured and verified the same enabled recurring continuation first, then saved an admission analysis targeting a longer 240-300 second useful-work envelope on the next safe treatment without changing the wake/jitter mechanism."
   },
-  "evidence_commit": "ddcd08042f267201441b2cc073dff7e8f4551d17"
+  "evidence_commit": "6e4defcfde24d99fb092ffd5e0edb2f66776ca86"
 }
