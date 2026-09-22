@@ -1,26 +1,26 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-22T23:38:49+09:00",
-  "previous_work_end_time": "2026-09-22T23:33:30+09:00",
-  "previous_active_work_sec": 20,
-  "idle_gap_sec": 319,
-  "paired_utilization": 0.0589970501,
-  "previous_scheduled_next_wake": "2026-09-22T23:36:00+09:00",
-  "scheduler_jitter_sec": 169,
-  "active_work_sec": 105,
-  "work_end_time": "2026-09-22T23:40:34+09:00",
-  "handoff_overhead_sec": 18,
-  "run_elapsed_sec": 123,
-  "tasks_completed": 4,
+  "actual_start_time": "2026-09-22T23:44:55+09:00",
+  "previous_work_end_time": "2026-09-22T23:40:34+09:00",
+  "previous_active_work_sec": 105,
+  "idle_gap_sec": 261,
+  "paired_utilization": 0.2868852459,
+  "previous_scheduled_next_wake": "2026-09-22T23:42:00+09:00",
+  "scheduler_jitter_sec": 175,
+  "active_work_sec": 32,
+  "work_end_time": "2026-09-22T23:45:27+09:00",
+  "handoff_overhead_sec": 1,
+  "run_elapsed_sec": 32,
+  "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-22T23:42:00+09:00",
+  "scheduled_next_wake": "2026-09-22T23:50:00+09:00",
   "decision": {
-    "elapsed_sec_at_decision": 105,
+    "elapsed_sec_at_decision": 31,
     "estimated_next_task_sec": 90,
     "handoff_safety_margin_sec": 120,
-    "action": "handoff_after_bounded_measurement_unit",
-    "reason": "Clean pair was closed from the canonical pointer and persisted. Same-wake active-duration remains the sole treatment variable; scheduler jitter is recorded diagnostically only."
+    "action": "handoff_after_clean-pair-analysis",
+    "reason": "Closed a clean causal pair, quantified fixed-idle leverage, and preserved same-wake active duration as the sole treatment variable. No scheduler-jitter optimization or cutoff-policy change was introduced."
   },
-  "evidence": "analysis/2026-09-22T2339_clean-pair-and-admission.md"
+  "evidence": "analysis/2026-09-22T2345_active-duration-admission.md"
 }
