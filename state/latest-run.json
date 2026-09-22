@@ -1,26 +1,26 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T00:54:57+09:00",
-  "previous_work_end_time": "2026-09-23T00:47:10+09:00",
-  "previous_active_work_sec": 142,
-  "idle_gap_sec": 467,
-  "paired_utilization": 0.2331691297,
+  "actual_start_time": "2026-09-23T01:01:20+09:00",
+  "previous_work_end_time": "2026-09-23T00:57:07+09:00",
+  "previous_active_work_sec": 130,
+  "idle_gap_sec": 253,
+  "paired_utilization": 0.3394255875,
   "pair_valid": true,
   "pair_invalid_reason": null,
-  "active_work_sec": 130,
-  "work_end_time": "2026-09-23T00:57:07+09:00",
+  "active_work_sec": 96,
+  "work_end_time": "2026-09-23T01:02:56+09:00",
   "handoff_overhead_sec": 12,
-  "run_elapsed_sec": 130,
+  "run_elapsed_sec": 96,
   "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T01:00:00+09:00",
-  "scheduler_jitter_sec": null,
+  "scheduled_next_wake": "2026-09-23T01:05:00+09:00",
+  "scheduler_jitter_sec": 80,
   "decision": {
-    "elapsed_sec_at_decision": 130,
+    "elapsed_sec_at_decision": 96,
     "estimated_next_task_sec": 180,
     "handoff_safety_margin_sec": 120,
     "action": "handoff",
-    "reason": "Fresh-read README and canonical predecessor. Closed a valid causal pair after the overlap-invalid sequence: 467 seconds idle after 142 seconds useful work, paired utilization 23.32%. Preserved the sole experiment variable as same-wake active duration. Secured and verified the same enabled recurring continuation before durable state write; did not spend useful-work time optimizing scheduler jitter."
+    "reason": "Fresh-read README and canonical predecessor; closed a valid causal pair with 253 seconds idle after 130 seconds useful work (33.94% paired utilization). Kept the sole experiment variable as same-wake active duration. Secured and verified the same enabled recurring continuation before durable state write; scheduler jitter remains diagnostic only."
   }
 }
