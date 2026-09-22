@@ -1,31 +1,30 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T04:56:56+09:00",
-  "previous_work_end_time": "2026-09-23T04:43:21+09:00",
+  "actual_start_time": "2026-09-23T05:19:20+09:00",
+  "previous_work_end_time": "2026-09-23T04:57:04+09:00",
   "previous_active_work_sec": 0,
-  "idle_gap_sec": 815,
+  "idle_gap_sec": 1336,
   "paired_utilization": null,
   "pair_valid": true,
-  "pair_note": "Causal boundary is valid after re-anchor, but predecessor active_work_sec was intentionally zero because the prior projected-duration sample was invalidated; therefore utilization is not informative for duration-frontier comparison.",
-  "active_work_sec": 0,
-  "work_end_time": "2026-09-23T04:57:04+09:00",
+  "pair_note": "Boundary is physically valid, but predecessor active_work_sec was the zero-duration re-anchor sample, so paired utilization is intentionally not used for cutoff inference.",
+  "active_work_sec": 28,
+  "work_end_time": "2026-09-23T05:19:48+09:00",
   "handoff_overhead_sec": 8,
-  "run_elapsed_sec": 8,
-  "tasks_completed": 3,
+  "run_elapsed_sec": 28,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T05:09:00+09:00",
-  "scheduler_jitter_sec": 56,
+  "scheduled_next_wake": "2026-09-23T05:30:00+09:00",
+  "scheduler_jitter_sec": 20,
   "decision": {
-    "elapsed_sec_at_decision": 8,
+    "elapsed_sec_at_decision": 28,
     "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
-    "action": "continue_reanchored_measurement_without_claiming_projected_frontier",
-    "reason": "README fresh-read. Closed the first physically valid boundary after invalidating the projected 840s sample. Preserved the single treatment variable. No future work_end_time or synthetic active_work duration is recorded. Continuation was secured before durable-state write. A future wake must measure only actually completed useful work before extending the clean frontier."
+    "action": "continue_on_next_wake_with_observed-only-duration",
+    "reason": "README fresh-read; recurring continuation secured before durable-state write. Only observed completed useful work is recorded. No projected frontier claim is made. The next valid pair can compute utilization from this 28-second predecessor sample."
   },
   "measurement_guard": {
     "rule": "work_end_time must be an observed completed-work timestamp at or before the state write; active_work_sec must represent completed useful work only",
-    "purpose": "prevent projected durations from being misclassified as clean runtime-frontier evidence"
-  },
-  "run_log_commit": null
+    "purpose": "prevent projected durations from being misclassified as runtime-frontier evidence"
+  }
 }
