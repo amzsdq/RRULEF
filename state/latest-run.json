@@ -1,30 +1,30 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T00:00:43+09:00",
-  "previous_work_end_time": "2026-09-22T23:54:50+09:00",
-  "previous_active_work_sec": 20,
-  "idle_gap_sec": 353,
-  "paired_utilization": 0.0536193,
-  "pair_valid": true,
-  "previous_scheduled_next_wake": "2026-09-23T00:01:00+09:00",
-  "scheduler_jitter_sec": -17,
-  "active_work_sec": 132,
-  "work_end_time": "2026-09-23T00:02:55+09:00",
-  "handoff_overhead_sec": 9,
-  "run_elapsed_sec": 132,
+  "actual_start_time": "2026-09-23T00:02:53+09:00",
+  "previous_work_end_time": "2026-09-23T00:02:55+09:00",
+  "previous_active_work_sec": 132,
+  "idle_gap_sec": null,
+  "paired_utilization": null,
+  "pair_valid": false,
+  "pair_invalid_reason": "overlap: actual start precedes durable predecessor work_end_time by 2 seconds; do not clamp negative idle to zero",
+  "previous_scheduled_next_wake": "2026-09-23T00:05:00+09:00",
+  "scheduler_jitter_sec": -127,
+  "active_work_sec": 174,
+  "work_end_time": "2026-09-23T00:05:47+09:00",
+  "handoff_overhead_sec": 14,
+  "run_elapsed_sec": 174,
   "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T00:05:00+09:00",
+  "scheduled_next_wake": "2026-09-23T00:07:00+09:00",
   "decision": {
-    "elapsed_sec_at_decision": 132,
+    "elapsed_sec_at_decision": 174,
     "estimated_next_task_sec": 180,
     "handoff_safety_margin_sec": 120,
-    "action": "handoff-after-useful-analysis",
-    "reason": "Fresh README/state read closed a valid 353-second causal idle pair. The run completed durable admission and cutoff-sensitivity work while preserving the single active-duration treatment variable. The intended >=180-second directly measured block remains the next informative treatment point; no cutoff, jitter, or handoff-mechanism change was made. Recurring continuation was secured before state save."
+    "action": "handoff-near-180-treatment-boundary",
+    "reason": "Fresh README/state read found a 2-second overlap with the predecessor endpoint, so this pair is excluded rather than clamped. Useful work continued through fresh-read validation, continuation securing, and durable treatment-plan creation. The run reached 174 seconds, close to the >=180-second treatment point, without timeout or forced stop. Starting another estimated 180-second task would add little treatment information relative to handoff risk, so the recurring continuation was secured first and state was saved. No cutoff, jitter, or handoff mechanism was changed."
   },
   "evidence": [
-    "analysis/2026-09-23T0000_duration-treatment-admission.md",
-    "analysis/2026-09-23T0000_cutoff-sensitivity.md"
+    "analysis/2026-09-23T0003_active-duration-treatment-plan.md"
   ]
 }
