@@ -1,24 +1,24 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T00:19:08+09:00",
-  "previous_work_end_time": "2026-09-23T00:17:59+09:00",
-  "previous_active_work_sec": 74,
-  "idle_gap_sec": 69,
-  "paired_utilization": 0.51748,
+  "actual_start_time": "2026-09-23T00:21:41+09:00",
+  "previous_work_end_time": "2026-09-23T00:20:40+09:00",
+  "previous_active_work_sec": 92,
+  "idle_gap_sec": 61,
+  "paired_utilization": 0.60131,
   "pair_valid": true,
-  "active_work_sec": 92,
-  "work_end_time": "2026-09-23T00:20:40+09:00",
-  "run_elapsed_sec": 92,
-  "tasks_completed": 3,
+  "active_work_sec": 131,
+  "work_end_time": "2026-09-23T00:23:52+09:00",
+  "run_elapsed_sec": 131,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T00:24:00+09:00",
-  "scheduler_jitter_sec": -112,
+  "scheduled_next_wake": "2026-09-23T00:26:00+09:00",
+  "scheduler_jitter_sec": -139,
   "decision": {
-    "elapsed_sec_at_decision": 92,
+    "elapsed_sec_at_decision": 131,
     "estimated_next_task_sec": 180,
     "handoff_safety_margin_sec": 120,
     "action": "handoff",
-    "reason": "Fresh-read README; closed a clean causal pair (74s active / 69s idle = 51.75% utilization), preserved the single active-duration variable, recorded the >=180s treatment target, and secured the enabled recurring continuation before durable state."
+    "reason": "Fresh-read README; closed clean predecessor pair (92s active / 61s idle = 60.13%), preserved same-wake active duration as the only treatment variable, secured enabled recurring continuation first, then persisted durable state. Analysis-file write was safety-blocked, so no retry loop was spent on bookkeeping."
   }
 }
