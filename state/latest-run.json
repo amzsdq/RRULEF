@@ -1,59 +1,36 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T06:55:54+09:00",
-  "previous_work_end_time": "2026-09-23T06:45:30+09:00",
-  "previous_active_work_sec": 63,
-  "idle_gap_sec": 624,
-  "paired_utilization": 0.091703,
-  "pair_valid": true,
-  "pair_note": "Observed predecessor completed-work duration and non-overlapping observed boundary; valid utilization evidence.",
+  "actual_start_time": "2026-09-23T07:07:33+09:00",
+  "previous_work_end_time": "2026-09-23T07:03:00.133615+09:00",
+  "previous_active_work_sec": null,
+  "previous_active_work_sec_observed_min": 61.898,
+  "idle_gap_sec": 272.866,
+  "paired_utilization": null,
+  "pair_valid": false,
+  "pair_note": "Boundary idle gap is observable, but predecessor full active_work_sec is unknown; paired utilization intentionally withheld to avoid fabricated precision.",
   "active_work_sec": null,
-  "active_work_sec_observed_min": 61.898,
   "active_work_complete": false,
-  "active_work_note": "Early substantive tasks in this wake were not individually timestamped. 61.898 sec is the exact sum of five later instrumented task spans only; do not treat it as full-wake active work or cutoff evidence.",
-  "work_end_time": "2026-09-23T07:03:00.133615+09:00",
-  "handoff_decision_time": "2026-09-23T07:03:06.893171+09:00",
-  "handoff_complete_time": "2026-09-23T07:03:27.481471+09:00",
-  "handoff_overhead_sec": 20.588,
-  "run_elapsed_sec": 426.134,
-  "tasks_completed": 18,
+  "active_work_note": "This wake identified and durably recorded the instrumentation defect. Full task-1-forward timing is required on the next wake before claiming cutoff evidence.",
+  "work_end_time": null,
+  "handoff_overhead_sec": null,
+  "run_elapsed_sec": null,
+  "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T07:08:00+09:00",
-  "scheduler_jitter_sec": -126,
+  "scheduled_next_wake": "2026-09-23T07:18:00+09:00",
+  "scheduler_jitter_sec": null,
   "decision": {
-    "elapsed_sec_at_decision": 432.893,
     "estimated_next_task_sec": 60,
     "handoff_safety_margin_sec": 120,
-    "action": "handoff",
-    "reason": "432.893 + 60 + 120 = 612.893 sec, beyond the nominal 600 sec Baseline-A comparator. Continuation was already secured and enabled. No timeout/forced stop occurred."
+    "action": "handoff_after_measurement-recovery",
+    "reason": "Continuation secured first. Preserve evidence integrity and make next wake fully instrumented from task 1; do not infer utilization from incomplete predecessor active-work measurement."
   },
   "measurement_guard": {
-    "rule": "Do not equate run elapsed with useful work. active_work_sec is null when full per-task instrumentation is incomplete; observed_min contains only directly timestamped later tasks.",
-    "purpose": "preserve utilization and adaptive-cutoff evidence integrity"
+    "rule": "Timestamp every substantive task from task 1; active_work_sec is the sum of completed task durations, never run elapsed.",
+    "purpose": "make long same-wake runs usable as adaptive-cutoff evidence"
   },
   "evidence": {
-    "run_path": "runs/2026-09-23T0655+0900.md",
-    "analysis_paths": [
-      "analysis/2026-09-23T0655-pair.md",
-      "analysis/2026-09-23T0657-frontier-gap.md",
-      "analysis/2026-09-23T0658-break-even-thresholds.md",
-      "analysis/2026-09-23T0659-evidence-priority.md",
-      "analysis/2026-09-23T0659-boundary-amortization.md",
-      "analysis/2026-09-23T0700-measurement-integrity.md",
-      "analysis/2026-09-23T0700-cost-decomposition.md",
-      "analysis/2026-09-23T0700-admission-checkpoint.md",
-      "analysis/2026-09-23T0700-boundary-stress.md",
-      "analysis/2026-09-23T0700-observed-duration-frontier.md",
-      "analysis/2026-09-23T0701-integrity-checkpoint.md",
-      "analysis/2026-09-23T0701-measurement-yield-check.md",
-      "analysis/2026-09-23T0702-evidence-ranking-refresh.md",
-      "analysis/2026-09-23T0702-cutoff-separation-refresh.md",
-      "analysis/2026-09-23T0702-early-handoff-recheck.md",
-      "analysis/2026-09-23T0702-qualification-status.md"
-    ],
-    "state_commits": [
-      "ab36510152dc608c408e191a17bfdb6f2eca97dd"
-    ]
+    "analysis_paths": ["analysis/2026-09-23T0707-measurement-recovery.md"],
+    "analysis_commits": ["03818ee6dd54149cc3728111eddd46faae888e8c"]
   }
 }
