@@ -1,27 +1,27 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T01:25:28+09:00",
-  "previous_work_end_time": "2026-09-23T01:22:20+09:00",
-  "previous_active_work_sec": 151,
-  "idle_gap_sec": 188,
-  "paired_utilization": 0.4454277286,
+  "actual_start_time": "2026-09-23T01:32:25+09:00",
+  "previous_work_end_time": "2026-09-23T01:29:58+09:00",
+  "previous_active_work_sec": 270,
+  "idle_gap_sec": 147,
+  "paired_utilization": 0.6474820144,
   "pair_valid": true,
   "pair_invalid_reason": null,
-  "active_work_sec": 270,
-  "work_end_time": "2026-09-23T01:29:58+09:00",
-  "handoff_overhead_sec": 12,
-  "run_elapsed_sec": 270,
-  "tasks_completed": 8,
+  "active_work_sec": 300,
+  "work_end_time": "2026-09-23T01:37:25+09:00",
+  "handoff_overhead_sec": 15,
+  "run_elapsed_sec": 300,
+  "tasks_completed": 7,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T01:30:00+09:00",
-  "scheduler_jitter_sec": 28,
+  "scheduled_next_wake": "2026-09-23T01:45:00+09:00",
+  "scheduler_jitter_sec": 145,
   "decision": {
-    "elapsed_sec_at_decision": 270,
+    "elapsed_sec_at_decision": 300,
     "estimated_next_task_sec": 150,
     "handoff_safety_margin_sec": 120,
     "action": "handoff",
-    "reason": "Fresh-read README; closed a valid predecessor pair with 188s real idle and 44.54% paired utilization; kept same-wake useful-work duration as the sole experiment variable; performed multiple useful analysis/checkpoint tasks; inferred that the timeout frontier remains unmeasured because recent runs hand off far below the initial ~600s envelope; secured and verified the same enabled recurring continuation before durable-state save; no scheduler-jitter optimization."
+    "reason": "Fresh-read README and closed a valid 270s-active/147s-idle predecessor pair at 64.75% utilization. Kept same-wake useful-work duration as the sole experiment variable, secured the same enabled recurring continuation first, then performed sustained frontier evidence tasks. This wake reached 300s useful-work accounting without timeout/forced-stop evidence, showing the recent 270s ceiling was not a measured runtime frontier. Handoff now preserves a 120s safety margin for the next sustained sample; scheduler jitter was not optimized."
   },
-  "evidence_commit": "725d0f0babad9ea9e6d94664d9ba0c21047fb5e5"
+  "evidence_commit": "530eacde4c86cd585a99f679450ff9a9c57cdf62"
 }
