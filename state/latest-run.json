@@ -1,34 +1,34 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T08:42:06+09:00",
-  "previous_work_end_time": "2026-09-23T08:34:27+09:00",
-  "previous_active_work_sec": 33,
-  "idle_gap_sec": 459,
+  "actual_start_time": "2026-09-23T08:51:58+09:00",
+  "previous_work_end_time": null,
+  "previous_active_work_sec": null,
+  "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Boundary idle is directly observed, but predecessor active_work_complete=false; do not promote 33/(33+459) as a clean cutoff sample.",
+  "pair_note": "Predecessor state intentionally preserved work_end_time and active_work_sec as null because exact task timing was unavailable; this boundary cannot be closed without fabrication.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "This wake performed multiple substantive GitHub analysis/write tasks, but exact per-task start/end timestamps were not available from tool execution metadata. Run elapsed is not substituted for active work; no fabricated precision.",
+  "active_work_note": "Substantive work completed: fresh README/state read, repository/commit inspection, recurring continuation secured, execution-gap analysis committed, prior sustained-sample decision revalidated, canonical state persisted. Exact per-task start/end timestamps remain unavailable from connector metadata, so active_work_sec is not fabricated.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 4,
+  "tasks_completed": 6,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T08:54:00+09:00",
+  "scheduled_next_wake": "2026-09-23T09:03:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
     "estimated_next_task_sec": 60,
     "handoff_safety_margin_sec": 120,
     "comparator_sec": 600,
     "action": "continue_sustained_useful_work_experiment",
-    "reason": "Fresh README and durable evidence show two idle-cost regimes (post-anchor mean 178.15 s; later short-wake median 634 s), but both imply the same robust direction: avoid manufacturing short handoff boundaries and obtain a fully instrumented sustained same-wake sample. 600 s remains comparator, not doctrine."
+    "reason": "Fresh inspection confirms the dominant defect is execution, not lack of sensitivity analysis: prior runs repeatedly concluded that sustained same-wake work is needed but handed off after short bursts. No scheduler mechanism changed; same-wake useful-work duration remains the sole treatment variable."
   },
   "measurement_guard": {
-    "rule": "Timestamp every substantive task from task 1; active_work_sec is the sum of completed task durations, never run elapsed.",
-    "status": "needs-runtime-timestamp-source",
-    "correction": "Do not report conservative minimum as if complete. If exact task timestamps are unavailable, preserve null and record completed substantive outputs instead."
+    "rule": "Use exact completed-task durations when observable; never substitute wall-clock run elapsed or connector latency for active work.",
+    "status": "runtime-task-timestamps-unavailable",
+    "correction": "Keep active_work_sec/work_end_time null when exact useful-work boundaries are unavailable rather than manufacture a clean sample."
   },
   "experiment_integrity": {
     "single_changed_variable": "same-wake useful-work duration",
@@ -42,12 +42,9 @@
     "analysis_paths": [
       "analysis/2026-09-23T0842-sustained-work-admission.md",
       "analysis/2026-09-23T0843-boundary-cost-reconciliation.md",
-      "analysis/2026-09-23T0844-sustained-sample-decision.md"
+      "analysis/2026-09-23T0844-sustained-sample-decision.md",
+      "analysis/2026-09-23T0852-sustained-work-execution-gap.md"
     ],
-    "analysis_commits": [
-      "915ffc210d97d88889d22bf5d689b6868eb4b9dc",
-      "486317538486a821ac701cbcb2a12b5b6cce039c",
-      "1b46a36faacb74a3edbd5bdcf79863c1fadb6eef"
-    ]
+    "latest_analysis_commit": "b112edd8cad629ff6983c80c84693a58d8f4d23d"
   }
 }
