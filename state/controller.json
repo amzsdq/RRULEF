@@ -5,76 +5,29 @@
   "workspace": "amzsdq/RRULEF",
   "canonical_automation_id": "6ab1fbfdaeb88191ac7257f0a2d607bd",
   "external_sources": {
-    "amzsdq/tEST": {
-      "access": "READ_ONLY",
-      "role": "scheduler_semantics_and_lead_time_evidence",
-      "observed_head": "c52fda90923fd751a5f01e34607f1075069af74b",
-      "observed_issue_1_comment_id": 5790969556
-    },
-    "amzsdq/workwork": {
-      "access": "READ_ONLY",
-      "role": "runtime_boundary_and_prearm_evidence",
-      "observed_head": "a57ee7a9ee7e1f891c21de395def5dea545c69f6"
-    }
+    "amzsdq/tEST": {"access":"READ_ONLY","role":"scheduler_semantics_and_lead_time_evidence","observed_head":"c52fda90923fd751a5f01e34607f1075069af74b","observed_issue_1_comment_id":5790969556},
+    "amzsdq/workwork": {"access":"READ_ONLY","role":"runtime_boundary_and_prearm_evidence","observed_head":"a57ee7a9ee7e1f891c21de395def5dea545c69f6"}
   },
   "active_experiment": {
-    "id": "H1_DUAL_ARM_CRASH_INSURANCE",
-    "status": "SAMPLE_2_IN_PROGRESS_PREARM_VERIFIED",
-    "primary_variable": "start_of_turn_crash_insurance_prearm_enabled",
-    "control": "final_rearm_only",
-    "treatment": "prearm_at_start_plus_verified_final_rearm",
-    "target_runtime_sec": 600,
-    "prearm_gap_sec": 180,
-    "final_lead_sec": 180,
-    "fixed_estimated_next_task_sec": 120,
-    "fixed_close_reserve_sec": 60,
-    "fixed_safety_margin_sec": 120,
-    "admission_rule": "continue only when elapsed_sec + estimated_next_task_sec + close_reserve_sec + safety_margin_sec < target_runtime_sec; otherwise close smallest in-flight unit",
-    "single_variable_guard": "Do not change runtime target, final lead, admission constants, external-source policy, or jitter policy during H1.",
-    "sample_1": {
-      "start_kst": "2026-09-23T16:34:50+09:00",
-      "work_end_time_kst": "2026-09-23T16:39:40+09:00",
-      "final_rearm_for_kst": "2026-09-23T16:42:40+09:00",
-      "actual_successor_start_kst": "2026-09-23T16:42:35+09:00",
-      "idle_gap_sec": 175,
-      "scheduler_jitter_sec": -5,
-      "final_write_ok": true,
-      "final_state_ok": true,
-      "final_wake_ok": true,
-      "result": "CLEAN_WAKE_OK"
-    },
-    "sample_2": {
-      "start_kst": "2026-09-23T16:42:35+09:00",
-      "prearm_for_kst": "2026-09-23T16:55:35+09:00",
-      "prearm_write_ok": true,
-      "prearm_state_ok": true,
-      "final_wake_ok": "NOT_YET_APPLICABLE"
-    }
+    "id":"H1_DUAL_ARM_CRASH_INSURANCE",
+    "status":"SAMPLE_2_AWAITING_FINAL_WAKE",
+    "primary_variable":"start_of_turn_crash_insurance_prearm_enabled",
+    "control":"final_rearm_only",
+    "treatment":"prearm_at_start_plus_verified_final_rearm",
+    "target_runtime_sec":600,
+    "prearm_gap_sec":180,
+    "final_lead_sec":180,
+    "fixed_estimated_next_task_sec":120,
+    "fixed_close_reserve_sec":60,
+    "fixed_safety_margin_sec":120,
+    "admission_rule":"continue only when elapsed_sec + estimated_next_task_sec + close_reserve_sec + safety_margin_sec < target_runtime_sec; otherwise close smallest in-flight unit",
+    "single_variable_guard":"Do not change runtime target, final lead, admission constants, external-source policy, or jitter policy during H1.",
+    "sample_1":{"start_kst":"2026-09-23T16:34:50+09:00","work_end_time_kst":"2026-09-23T16:39:40+09:00","final_rearm_for_kst":"2026-09-23T16:42:40+09:00","actual_successor_start_kst":"2026-09-23T16:42:35+09:00","idle_gap_sec":175,"scheduler_jitter_sec":-5,"final_write_ok":true,"final_state_ok":true,"final_wake_ok":true,"result":"CLEAN_WAKE_OK"},
+    "sample_2":{"start_kst":"2026-09-23T16:42:35+09:00","prearm_for_kst":"2026-09-23T16:55:35+09:00","prearm_write_ok":true,"prearm_state_ok":true,"work_end_time_kst":"2026-09-23T16:43:23+09:00","run_elapsed_sec":48,"final_rearm_for_kst":"2026-09-23T16:46:23+09:00","final_write_ok":true,"final_state_ok":true,"final_wake_ok":"PENDING","result":"CLEAN_STATE_PENDING_WAKE"}
   },
-  "rrulef_frontier": {
-    "verified_active_frontier_sec": 480,
-    "next_treatment_target_sec": 600,
-    "promotion_requires_direct_rrulef_completion_evidence": true,
-    "promotion_status_during_h1": "FROZEN_TO_PRESERVE_ONE_VARIABLE_DISCIPLINE"
-  },
-  "evidence_contract": {
-    "write_ok_is_not_wake_ok": true,
-    "state_ok_requires_intended_dtstart_rrule_enabled": true,
-    "waKe_ok_requires_later_actual_invocation": true,
-    "stale_due_forbidden": true,
-    "scheduler_jitter_is_diagnostic_only": true
-  },
-  "handoff_order": [
-    "finish_smallest_inflight_unit",
-    "capture_work_end_time",
-    "compute_future_final_next",
-    "scheduler_update_same_recurring_automation",
-    "verify_live_state",
-    "persist_durable_follower_state"
-  ],
-  "rollback": {
-    "condition": "H1 causes overlap, materially higher control overhead without recovery benefit, or lower long-run useful-work utilization",
-    "target": "FINAL_REARM_ONLY"
-  },
-  "updated_at": "2026-09-23T16:43:30+09:00"
+  "rrulef_frontier":{"verified_active_frontier_sec":480,"next_treatment_target_sec":600,"promotion_requires_direct_rrulef_completion_evidence":true,"promotion_status_during_h1":"FROZEN_TO_PRESERVE_ONE_VARIABLE_DISCIPLINE"},
+  "evidence_contract":{"write_ok_is_not_wake_ok":true,"state_ok_requires_intended_dtstart_rrule_enabled":true,"waKe_ok_requires_later_actual_invocation":true,"stale_due_forbidden":true,"scheduler_jitter_is_diagnostic_only":true},
+  "handoff_order":["finish_smallest_inflight_unit","capture_work_end_time","compute_future_final_next","scheduler_update_same_recurring_automation","verify_live_state","persist_durable_follower_state"],
+  "rollback":{"condition":"H1 causes overlap, materially higher control overhead without recovery benefit, or lower long-run useful-work utilization","target":"FINAL_REARM_ONLY"},
+  "updated_at":"2026-09-23T16:43:30+09:00"
 }
