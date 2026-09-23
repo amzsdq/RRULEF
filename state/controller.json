@@ -8,7 +8,9 @@
     "amzsdq/tEST": {
       "access": "READ_ONLY",
       "role": "scheduler_semantics_and_lead_time_evidence",
-      "observed_head": "c52fda90923fd751a5f01e34607f1075069af74b"
+      "observed_head": "c52fda90923fd751a5f01e34607f1075069af74b",
+      "observed_issue_1_comment_id": 5790898592,
+      "latest_assimilation": "Issue #1 is newer than repository head. Latest observed record at 16:33:51 KST is recovery identity-elision research with JITTER_SAMPLE=SKIP because invocation preceded stored DTSTART; no new lead-time or H1 scheduler-policy evidence. Track issue-tail watermark separately from commit head."
     },
     "amzsdq/workwork": {
       "access": "READ_ONLY",
@@ -74,5 +76,5 @@
     "condition": "H1 causes overlap, materially higher control overhead without recovery benefit, or lower long-run useful-work utilization",
     "target": "FINAL_REARM_ONLY"
   },
-  "updated_at": "2026-09-23T16:35:20+09:00"
+  "updated_at": "2026-09-23T16:37:05+09:00"
 }
