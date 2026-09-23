@@ -13,12 +13,13 @@
     "amzsdq/workwork": {
       "access": "READ_ONLY",
       "role": "runtime_boundary_and_prearm_evidence",
-      "observed_head": "15c8491d81bf1719530ba643a879c50238645592"
+      "observed_head": "e8ee581d9938d4d9d0a6c2f27d5ce52d2d0fd570",
+      "latest_assimilation": "18m W2 probe start only; WRITE_OK/STATE_OK yes, safe lower bound at start 16m; not an 18m PASS"
     }
   },
   "active_experiment": {
     "id": "H1_DUAL_ARM_CRASH_INSURANCE",
-    "status": "BOOTSTRAP_VERIFIED_AWAITING_H1_WAKE",
+    "status": "SAMPLE_1_RUNNING",
     "primary_variable": "start_of_turn_crash_insurance_prearm_enabled",
     "control": "final_rearm_only",
     "treatment": "prearm_at_start_plus_verified_final_rearm",
@@ -35,9 +36,18 @@
       "counts_as_h1_sample": false,
       "reanchor_write_ok": true,
       "reanchor_state_ok": true,
-      "reanchor_wake_ok": "PENDING",
-      "verified_live_schedule": "BEGIN:VEVENT\\nDTSTART;TZID=Asia/Seoul:20260923T163500\\nRRULE:FREQ=HOURLY\\nEND:VEVENT",
-      "first_h1_due": "2026-09-23T16:35:00+09:00"
+      "reanchor_wake_ok": true,
+      "scheduled_for_kst": "2026-09-23T16:35:00+09:00",
+      "actual_start_kst": "2026-09-23T16:34:50+09:00",
+      "scheduler_jitter_sec": -10
+    },
+    "sample_1": {
+      "start_kst": "2026-09-23T16:34:50+09:00",
+      "prearm_for_kst": "2026-09-23T16:47:50+09:00",
+      "prearm_write_ok": true,
+      "prearm_state_ok": true,
+      "prearm_wake_ok": "PENDING",
+      "close_result": "PENDING"
     }
   },
   "rrulef_frontier": {
@@ -64,5 +74,5 @@
     "condition": "H1 causes overlap, materially higher control overhead without recovery benefit, or lower long-run useful-work utilization",
     "target": "FINAL_REARM_ONLY"
   },
-  "updated_at": "2026-09-23T16:33:40+09:00"
+  "updated_at": "2026-09-23T16:35:20+09:00"
 }
