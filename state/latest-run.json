@@ -1,56 +1,52 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T09:47:31+09:00",
+  "actual_start_time": "2026-09-23T09:58:21+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Predecessor lacks directly observed work_end_time/active_work_sec; boundary remains uncloseable without fabrication.",
+  "pair_note": "Immediate predecessor lacks directly observed work_end_time/active_work_sec; this boundary remains uncloseable without fabrication.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README/state/commit-history read; active-duration frontier execution audited; recurring continuation secured before durable-state write; one audit artifact committed. Exact useful-work duration remains unobservable on the current tool surface and is not fabricated.",
+  "active_work_note": "Fresh README/state/history reconciliation found canonical frontier regression: durable valid evidence supports a completed 480-second predecessor, while state had regressed to 105 seconds. Reconciled frontier without fabricating current-turn useful-work duration.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 7,
+  "tasks_completed": 8,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T09:58:00+09:00",
-  "scheduler_jitter_sec": 31,
+  "scheduled_next_wake": "2026-09-23T10:11:00+09:00",
+  "scheduler_jitter_sec": 21,
   "decision": {
     "current_elapsed_sec": null,
-    "estimated_next_task_sec": 60,
+    "estimated_next_task_sec": 120,
     "handoff_safety_margin_sec": 120,
     "comparator_sec": 600,
-    "verified_active_frontier_sec": 105,
-    "next_informative_milestone_sec": 180,
-    "action": "execute_frontier_treatment_without_more_threshold_analysis",
-    "reason": "The experiment is evidence-limited by absence of a new directly measured >105 s active block. Additional threshold analysis has diminishing value; the next admissible result must come from treatment execution under unchanged controls."
+    "verified_active_frontier_sec": 480,
+    "next_informative_milestone_sec": 600,
+    "action": "execute_600s_frontier_treatment",
+    "reason": "Durable valid run evidence records a completed 480-second predecessor with no timeout/forced stop and a 251-second following idle gap (65.663475% paired utilization). The previous 105/180 frontier state was stale. The 600-second artifact is target/admission evidence, not proof of completed 600-second work, so 600 remains the next treatment target rather than a verified frontier."
   },
   "measurement_guard": {
-    "rule": "Record only directly observable metrics; never substitute connector latency, commit timestamps, scheduler timestamps, or whole-turn wall time for useful work.",
-    "status": "measurement-surface-limited",
-    "recovery": "Resume exact completed-task interval aggregation if trustworthy task-boundary timestamps become exposed; otherwise continue substantive work and leave unavailable timing metrics null."
+    "rule": "Record only directly supported metrics; never infer completed duration from filenames, target fields, commit messages, connector latency, scheduler timestamps, or whole-turn wall time.",
+    "status": "frontier-reconciled",
+    "recovery": "Advance verified frontier only from durable evidence that explicitly supports a completed active block and its termination status."
   },
   "experiment_integrity": {
     "single_changed_variable": "same-wake useful-work duration",
-    "fixed_estimated_next_task_sec": 60,
+    "fixed_estimated_next_task_sec": 120,
     "fixed_handoff_safety_margin_sec": 120,
     "fixed_comparator_sec": 600,
     "scheduler_jitter_optimization": false,
     "premature_handoff_is_failure": true
   },
   "evidence": {
-    "analysis_paths": [
-      "analysis/2026-09-22T2227_sustained-work-break-even.md",
-      "analysis/2026-09-22T2339_clean-pair-and-admission.md",
-      "analysis/2026-09-22T2345_active-duration-admission.md",
-      "analysis/2026-09-22T2350_active-duration-treatment.md",
-      "analysis/2026-09-23T0935-evidence-consolidation.md",
-      "analysis/2026-09-23T0936-next-treatment-contract.md",
-      "analysis/2026-09-23T0947-frontier-execution-audit.md"
-    ],
-    "latest_analysis_commit": "bca3787f8498cc2dd9f9df48bdf7b584418a7f36"
+    "verified_frontier_path": "runs/2026-09-23T030454+0900-frontier-600.json",
+    "verified_frontier_active_sec": 480,
+    "verified_frontier_following_idle_sec": 251,
+    "verified_frontier_paired_utilization": 0.65663475,
+    "reconciliation_path": "analysis/2026-09-23T0958-frontier-state-reconciliation.md",
+    "reconciliation_commit": "ed27c4c55a7935c07956db55a247938d979df329"
   }
 }
