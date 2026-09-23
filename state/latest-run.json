@@ -1,50 +1,46 @@
 {
   "schema": 1,
-  "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T15:33:29+09:00",
+  "experiment": "H1_DUAL_ARM_CRASH_INSURANCE",
+  "actual_start_time": "2026-09-23T16:34:50+09:00",
   "previous_work_end_time": null,
-  "previous_active_work_sec": null,
   "idle_gap_sec": null,
-  "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Immediate predecessor still has no directly observed work_end_time/active_work_sec; no boundary inferred.",
+  "pair_note": "Immediate predecessor has no directly observed work_end_time; no idle boundary inferred.",
   "active_work_sec": null,
-  "active_work_complete": false,
-  "active_work_note": "Fresh-read README and canonical frontier. Performed substantive repository work by replacing repeated sensitivity/gate analysis with an information-gain work priority that targets boundary closure, new direct evidence, and contradictory-state cleanup while direct timing is unavailable.",
-  "work_end_time": null,
-  "handoff_overhead_sec": null,
-  "run_elapsed_sec": null,
-  "tasks_completed": 4,
+  "active_work_complete": true,
+  "active_work_note": "Exact useful-work seconds were not separately instrumented; elapsed is not relabeled as active work. Nine substantive research/control units were durably completed during the turn.",
+  "work_end_time": "2026-09-23T16:39:40+09:00",
+  "handoff_overhead_sec": 4,
+  "run_elapsed_sec": 290,
+  "tasks_completed": 9,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": null,
-  "scheduler_jitter_sec": null,
+  "scheduled_next_wake": "2026-09-23T16:42:40+09:00",
+  "scheduler_jitter_sec": -10,
+  "scheduler": {
+    "prearm_for": "2026-09-23T16:47:50+09:00",
+    "prearm_write_ok": true,
+    "prearm_state_ok": true,
+    "prearm_disposition": "SUPERSEDED_BY_VERIFIED_FINAL_REARM",
+    "final_rearm_for": "2026-09-23T16:42:40+09:00",
+    "final_write_ok": true,
+    "final_state_ok": true,
+    "final_wake_ok": "PENDING",
+    "overlap_observed": false
+  },
   "decision": {
-    "current_elapsed_sec": null,
-    "estimated_next_task_sec": 120,
-    "handoff_safety_margin_sec": 120,
-    "comparator_sec": 600,
-    "verified_active_frontier_sec": 480,
-    "next_informative_milestone_sec": 600,
-    "action": "continue_bounded_information_gain_repo_work_until_direct_timing_is_observable",
-    "reason": "Repeated arithmetic has zero marginal information gain. Prefer work capable of closing a real boundary, changing frontier evidence, or preventing evidence misclassification."
+    "action": "CONTINUE_H1_SAMPLE_SERIES",
+    "reason": "Sample 1 proves clean dual-arm state transition through final live verification, but the following actual wake is still required for WAKE_OK. Three clean H1 samples are required before considering a separate bounded value/fault test.",
+    "duration_frontier_effect": "NONE_H1_FRONTIER_FROZEN"
+  },
+  "external_evidence": {
+    "test_issue_1_comment_watermark": 5790969556,
+    "workwork_commit_watermark": "a57ee7a9ee7e1f891c21de395def5dea545c69f6",
+    "workwork_16m": "CLEAN_PASS_WAKE_OK supporting only",
+    "workwork_18m": "IN_PROGRESS checkpoint only, not PASS",
+    "workwork_overlap": "CONCURRENT 198s historical external constraint"
   },
   "measurement_guard": {
-    "rule": "Only DIRECT or DERIVED_VALID exact metrics enter exact paired evidence. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
-    "status": "frontier-480-verified-600-direct-timing-pending"
-  },
-  "experiment_integrity": {
-    "single_changed_variable": "same-wake useful-work duration",
-    "fixed_estimated_next_task_sec": 120,
-    "fixed_handoff_safety_margin_sec": 120,
-    "fixed_comparator_sec": 600,
-    "scheduler_jitter_optimization": false
-  },
-  "evidence": {
-    "canonical_frontier_index": "state/frontier-evidence.json",
-    "verified_frontier_path": "runs/2026-09-23T030454+0900-frontier-600.json",
-    "verified_frontier_active_sec": 480,
-    "verified_frontier_following_idle_sec": 251,
-    "verified_frontier_paired_utilization": 0.65663475,
-    "next_informative_work": "analysis/2026-09-23T1533-next-informative-work.md"
+    "rule": "Only direct or validly derived exact metrics enter exact paired evidence. Elapsed is not automatically useful work; external duration success does not promote RRULEF frontier.",
+    "status": "H1_SAMPLE_1_CLEAN_STATE_PENDING_WAKE"
   }
 }
