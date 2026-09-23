@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T11:49:26+09:00",
+  "actual_start_time": "2026-09-23T12:00:10+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,14 +10,14 @@
   "pair_note": "Immediate predecessor still lacks directly observed work_end_time/active_work_sec; boundary is not inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README, canonical frontier evidence, latest state, and recent commit history read. No directly observed completed 600s interval is present. Recurring continuation was secured before this durable write; unsupported duration is not fabricated.",
+  "active_work_note": "Fresh README/state/frontier evidence plus recent commit history were inspected. A concrete regression was identified: repeated short wakes were re-verifying/preserving the pending 600s treatment instead of executing it. Durable regression analysis was committed. Direct 600s completion is still not fabricated.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 4,
+  "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T12:02:00+09:00",
-  "scheduler_jitter_sec": -34,
+  "scheduled_next_wake": "2026-09-23T12:13:00+09:00",
+  "scheduler_jitter_sec": -110,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 120,
@@ -25,8 +25,8 @@
     "comparator_sec": 600,
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
-    "action": "continue_600s_frontier_treatment",
-    "reason": "No new direct 600s completion evidence. Preserve the single changed variable and prioritize useful work; scheduler jitter remains diagnostic only."
+    "action": "execute_600s_treatment_not_repeat_verification",
+    "reason": "Repeated verification-only wakes are a useful-work utilization regression. Preserve one changed variable and require directly measured bounded useful work toward the 600s treatment."
   },
   "measurement_guard": {
     "rule": "Record only directly supported metrics; never infer completed duration from filenames, target fields, commit messages, connector latency, scheduler timestamps, or whole-turn wall time.",
@@ -44,6 +44,7 @@
     "verified_frontier_path": "runs/2026-09-23T030454+0900-frontier-600.json",
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
-    "verified_frontier_paired_utilization": 0.65663475
+    "verified_frontier_paired_utilization": 0.65663475,
+    "repeat_wake_regression_analysis": "analysis/2026-09-23T1200-repeat-wake-regression.md"
   }
 }
