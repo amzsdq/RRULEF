@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment": "baseline-a-active-work-duration",
+  "objective": "maximize useful-work utilization / minimize actual idle gap",
+  "verified_active_frontier_sec": 480,
+  "verified_source": "runs/2026-09-23T030454+0900-frontier-600.json",
+  "verified_following_idle_gap_sec": 251,
+  "verified_paired_utilization": 0.65663475,
+  "timeout_or_forced_stop": false,
+  "next_treatment_target_sec": 600,
+  "next_treatment_status": "pending_direct_completion_evidence",
+  "single_changed_variable": "same-wake useful-work duration",
+  "fixed_estimated_next_task_sec": 120,
+  "fixed_handoff_safety_margin_sec": 120,
+  "scheduler_jitter_is_diagnostic_only": true,
+  "guard": "Promote the frontier only from a directly observed completed active-work interval; target/admission/filename evidence is insufficient."
+}
