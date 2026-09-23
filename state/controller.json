@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "controller_version": "H1.0",
+  "objective": "maximize useful-work utilization / minimize actual idle gap",
+  "workspace": "amzsdq/RRULEF",
+  "canonical_automation_id": "6ab1fbfdaeb88191ac7257f0a2d607bd",
+  "external_sources": {
+    "amzsdq/tEST": {
+      "access": "READ_ONLY",
+      "role": "scheduler_semantics_and_lead_time_evidence",
+      "observed_head": "c52fda90923fd751a5f01e34607f1075069af74b"
+    },
+    "amzsdq/workwork": {
+      "access": "READ_ONLY",
+      "role": "runtime_boundary_and_prearm_evidence",
+      "observed_head": "15c8491d81bf1719530ba643a879c50238645592"
+    }
+  },
+  "active_experiment": {
+    "id": "H1_DUAL_ARM_CRASH_INSURANCE",
+    "status": "ARMED",
+    "primary_variable": "start_of_turn_crash_insurance_prearm_enabled",
+    "control": "final_rearm_only",
+    "treatment": "prearm_at_start_plus_verified_final_rearm",
+    "target_runtime_sec": 600,
+    "prearm_gap_sec": 180,
+    "final_lead_sec": 180,
+    "fixed_estimated_next_task_sec": 120,
+    "fixed_close_reserve_sec": 60,
+    "fixed_safety_margin_sec": 120,
+    "admission_rule": "continue only when elapsed_sec + estimated_next_task_sec + close_reserve_sec + safety_margin_sec < target_runtime_sec; otherwise close smallest in-flight unit",
+    "single_variable_guard": "Do not change runtime target, final lead, admission constants, external-source policy, or jitter policy during H1."
+  },
+  "rrulef_frontier": {
+    "verified_active_frontier_sec": 480,
+    "next_treatment_target_sec": 600,
+    "promotion_requires_direct_rrulef_completion_evidence": true
+  },
+  "evidence_contract": {
+    "write_ok_is_not_wake_ok": true,
+    "state_ok_requires_intended_dtstart_rrule_enabled": true,
+    "waKe_ok_requires_later_actual_invocation": true,
+    "stale_due_forbidden": true,
+    "scheduler_jitter_is_diagnostic_only": true
+  },
+  "handoff_order": [
+    "finish_smallest_inflight_unit",
+    "capture_work_end_time",
+    "compute_future_final_next",
+    "scheduler_update_same_recurring_automation",
+    "verify_live_state",
+    "persist_durable_follower_state"
+  ],
+  "rollback": {
+    "condition": "H1 causes overlap, materially higher control overhead without recovery benefit, or lower long-run useful-work utilization",
+    "target": "FINAL_REARM_ONLY"
+  },
+  "updated_at": "2026-09-23T16:30:14+09:00"
+}
