@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T12:23:53+09:00",
+  "actual_start_time": "2026-09-23T12:26:46+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,13 +10,13 @@
   "pair_note": "Immediate predecessor has no directly observed work_end_time/active_work_sec; no boundary inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Completed three consecutive useful-work items: measurement-schema audit, exact paired-evidence table, and adaptive-cutoff evidence check. Per-task active duration remains unobservable on this runtime surface and is not inferred from connector/commit timing.",
+  "active_work_note": "Fresh-read README, audited the prior evidence-table conclusion, recovered three omitted exact historical active/idle pairs, corrected the canonical evidence table and adaptive-cutoff analysis, and secured the next recurring continuation first. Per-task active duration remains unobservable on this runtime surface.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 3,
+  "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T12:27:00+09:00",
+  "scheduled_next_wake": "2026-09-23T12:39:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
@@ -25,8 +25,8 @@
     "comparator_sec": 600,
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
-    "action": "continue_with_workqueue_item_4_then_prioritize_direct_instrumentation",
-    "reason": "Current exact paired evidence is n=1; it does not justify an adaptive cutoff. Useful repository work advanced three queue items without changing the experimental variable."
+    "action": "continue_direct_instrumentation_or_next_high-information_repo_work",
+    "reason": "Corrected exact paired evidence is n=4 and strongly supports longer useful-work blocks qualitatively, but remains insufficient to fit a precise adaptive cutoff; 600s still lacks direct completion evidence."
   },
   "measurement_guard": {
     "rule": "Only DIRECT or DERIVED_VALID metrics enter paired evidence. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
@@ -45,6 +45,8 @@
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
     "verified_frontier_paired_utilization": 0.65663475,
+    "exact_paired_sample_count": 4,
+    "evidence_table_correction": "analysis/2026-09-23T1226-evidence-table-correction.md",
     "measurement_schema_audit": "analysis/2026-09-23T1223-measurement-schema-audit.md",
     "valid_paired_evidence_table": "analysis/2026-09-23T1223-valid-paired-evidence-table.md",
     "adaptive_cutoff_evidence_check": "analysis/2026-09-23T1223-adaptive-cutoff-evidence-check.md",
