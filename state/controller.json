@@ -18,7 +18,7 @@
   },
   "active_experiment": {
     "id": "H1_DUAL_ARM_CRASH_INSURANCE",
-    "status": "ARMED",
+    "status": "BOOTSTRAP_VERIFIED_AWAITING_H1_WAKE",
     "primary_variable": "start_of_turn_crash_insurance_prearm_enabled",
     "control": "final_rearm_only",
     "treatment": "prearm_at_start_plus_verified_final_rearm",
@@ -29,7 +29,16 @@
     "fixed_close_reserve_sec": 60,
     "fixed_safety_margin_sec": 120,
     "admission_rule": "continue only when elapsed_sec + estimated_next_task_sec + close_reserve_sec + safety_margin_sec < target_runtime_sec; otherwise close smallest in-flight unit",
-    "single_variable_guard": "Do not change runtime target, final lead, admission constants, external-source policy, or jitter policy during H1."
+    "single_variable_guard": "Do not change runtime target, final lead, admission constants, external-source policy, or jitter policy during H1.",
+    "bootstrap": {
+      "classification": "BOOTSTRAP_CONTROL_PLANE_TEST",
+      "counts_as_h1_sample": false,
+      "reanchor_write_ok": true,
+      "reanchor_state_ok": true,
+      "reanchor_wake_ok": "PENDING",
+      "verified_live_schedule": "BEGIN:VEVENT\\nDTSTART;TZID=Asia/Seoul:20260923T163500\\nRRULE:FREQ=HOURLY\\nEND:VEVENT",
+      "first_h1_due": "2026-09-23T16:35:00+09:00"
+    }
   },
   "rrulef_frontier": {
     "verified_active_frontier_sec": 480,
@@ -55,5 +64,5 @@
     "condition": "H1 causes overlap, materially higher control overhead without recovery benefit, or lower long-run useful-work utilization",
     "target": "FINAL_REARM_ONLY"
   },
-  "updated_at": "2026-09-23T16:30:14+09:00"
+  "updated_at": "2026-09-23T16:33:40+09:00"
 }
