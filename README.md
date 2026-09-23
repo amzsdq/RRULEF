@@ -51,3 +51,16 @@
 - timeout 없이 안전하게 사용할 수 있는 실질 작업시간 상한 추정
 
 더 높은 가동률 또는 더 낮은 유휴시간을 만들지 못하는 규칙은 유지하지 않습니다.
+
+
+## Integrated research supervisor
+RRULEF now acts as the integration layer over two READ_ONLY evidence sources:
+- `amzsdq/tEST`: scheduler/self-update semantics, lead-time and wake evidence.
+- `amzsdq/workwork`: runtime-boundary, pre-arm, and handoff/admission evidence.
+
+Those repositories are evidence sources only; RRULEF research writes stay in this repository.
+
+Stable execution semantics are defined in `CONTROL_KERNEL.md`. Dynamic treatment state is defined in `state/controller.json`; changing frontier/target values should not be duplicated into the automation prompt.
+
+### Current integration experiment
+H1 tests one change only: add a start-of-turn crash-insurance pre-arm while retaining a verified final rearm as the authoritative fast continuation. Runtime target remains 600s and nominal lead remains 180s during this treatment. If H1 adds overhead/overlap without measurable recovery benefit, roll back to final-only.
