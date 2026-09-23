@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T12:54:26+09:00",
+  "actual_start_time": "2026-09-23T13:05:49+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,14 +10,14 @@
   "pair_note": "Immediate predecessor has no directly observed work_end_time/active_work_sec; no boundary inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh-read README, audited the run inventory and paired-evidence classification, and corrected a confidence-class conflation: the ~90s/468s/16.13% historical pair is valid qualitative evidence but its active duration is approximate, so it must not increase the exact-pair count. Exact paired evidence remains n=4; approximate paired evidence is tracked separately. Updated the canonical paired-evidence table accordingly.",
+  "active_work_note": "Fresh-read README and completed the next useful-work item: cutoff-identifiability analysis from the four exact historical pairs. The data identify the coarse benefit of longer same-wake useful work under hundreds-of-seconds boundary idle, but do not identify a precise adaptive cutoff because active duration and following idle cost co-vary and 600s lacks direct completion evidence.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 4,
+  "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T13:07:00+09:00",
-  "scheduler_jitter_sec": 26,
+  "scheduled_next_wake": "2026-09-23T13:18:00+09:00",
+  "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 120,
@@ -25,11 +25,11 @@
     "comparator_sec": 600,
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
-    "action": "continue_direct_instrumentation_and_pair_provenance_audit",
-    "reason": "Do not mix approximate and exact active-duration evidence. Exact pair count remains four; sparse heterogeneous idle costs still preclude precise adaptive-cutoff fitting. Preserve the 480s verified frontier and seek direct 600s completion evidence."
+    "action": "continue_direct_instrumentation_toward_600s",
+    "reason": "Exact n=4 supports longer useful-work blocks but cannot identify a numeric optimum. Preserve the 480s verified frontier and seek direct 600s completion evidence without changing another mechanism."
   },
   "measurement_guard": {
-    "rule": "Only DIRECT or DERIVED_VALID exact metrics enter exact paired evidence. Approximate active durations may be retained in a separate qualitative stratum. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
+    "rule": "Only DIRECT or DERIVED_VALID exact metrics enter exact paired evidence. Approximate active durations remain qualitative-only. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
     "status": "frontier-480-verified-600-observability-blocked"
   },
   "experiment_integrity": {
@@ -47,13 +47,8 @@
     "verified_frontier_paired_utilization": 0.65663475,
     "exact_historical_pair_count": 4,
     "approximate_historical_pair_count_known_minimum": 1,
-    "approximate_pair_path": "analysis/2026-09-22T2306-closed-pair-and-utilization.md",
-    "approximate_pair_active_sec": 90,
-    "approximate_pair_idle_sec": 468,
-    "approximate_pair_utilization": 0.1613,
     "valid_paired_evidence_table": "analysis/2026-09-23T1223-valid-paired-evidence-table.md",
-    "measurement_schema_audit": "analysis/2026-09-23T1223-measurement-schema-audit.md",
-    "adaptive_cutoff_evidence_check": "analysis/2026-09-23T1223-adaptive-cutoff-evidence-check.md",
-    "useful_work_queue": "analysis/2026-09-23T1222-measurement-workqueue.md"
+    "cutoff_identifiability_check": "analysis/2026-09-23T1305-cutoff-identifiability.md",
+    "measurement_schema_audit": "analysis/2026-09-23T1223-measurement-schema-audit.md"
   }
 }
