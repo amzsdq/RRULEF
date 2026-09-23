@@ -1,22 +1,22 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T12:22:04+09:00",
+  "actual_start_time": "2026-09-23T12:23:53+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Immediate predecessor lacks directly observed work_end_time/active_work_sec; boundary is not inferred.",
+  "pair_note": "Immediate predecessor has no directly observed work_end_time/active_work_sec; no boundary inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Performed concrete repository work instead of repeating frontier verification: fresh-read README/state, inspected repository work surface, created a bounded useful-work queue, and audited canonical frontier evidence/source. Active duration remains unobservable on this runtime surface.",
+  "active_work_note": "Completed three consecutive useful-work items: measurement-schema audit, exact paired-evidence table, and adaptive-cutoff evidence check. Per-task active duration remains unobservable on this runtime surface and is not inferred from connector/commit timing.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 5,
+  "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T12:23:00+09:00",
+  "scheduled_next_wake": "2026-09-23T12:27:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
@@ -25,11 +25,11 @@
     "comparator_sec": 600,
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
-    "action": "continue_concrete_repo_work_from_measurement_workqueue",
-    "reason": "Duration observability is blocked, so useful bounded repository tasks provide more value than repeated pending-status checks."
+    "action": "continue_with_workqueue_item_4_then_prioritize_direct_instrumentation",
+    "reason": "Current exact paired evidence is n=1; it does not justify an adaptive cutoff. Useful repository work advanced three queue items without changing the experimental variable."
   },
   "measurement_guard": {
-    "rule": "Record only directly supported metrics; never infer completed duration from filenames, target fields, commit messages, connector latency, scheduler timestamps, or whole-turn wall time.",
+    "rule": "Only DIRECT or DERIVED_VALID metrics enter paired evidence. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
     "status": "frontier-480-verified-600-observability-blocked"
   },
   "experiment_integrity": {
@@ -45,7 +45,9 @@
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
     "verified_frontier_paired_utilization": 0.65663475,
-    "runtime_observability_blocker": "analysis/2026-09-23T1210-runtime-observability-blocker.md",
+    "measurement_schema_audit": "analysis/2026-09-23T1223-measurement-schema-audit.md",
+    "valid_paired_evidence_table": "analysis/2026-09-23T1223-valid-paired-evidence-table.md",
+    "adaptive_cutoff_evidence_check": "analysis/2026-09-23T1223-adaptive-cutoff-evidence-check.md",
     "useful_work_queue": "analysis/2026-09-23T1222-measurement-workqueue.md"
   }
 }
