@@ -1,22 +1,22 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T10:22:01+09:00",
+  "actual_start_time": "2026-09-23T10:25:43+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Immediate predecessor lacks directly observed work_end_time/active_work_sec; this boundary remains uncloseable without fabrication.",
+  "pair_note": "Immediate predecessor still lacks directly observed work_end_time/active_work_sec; do not fabricate this boundary.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README/state/frontier evidence check completed. No explicit completed 600-second active block was found, so verified frontier remains 480 seconds and 600 seconds remains the next treatment target.",
+  "active_work_note": "Fresh README/state/history restore completed; identified repeated short-handoff analytical loop as the current execution defect. No completed 600s sample is claimed.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
   "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T10:25:00+09:00",
+  "scheduled_next_wake": "2026-09-23T10:37:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
@@ -25,13 +25,13 @@
     "comparator_sec": 600,
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
-    "action": "execute_600s_frontier_treatment",
-    "reason": "Fresh repository evidence check found no explicit completed active_work_sec=600 record. Existing durable frontier record proves a 480-second predecessor with 251-second following idle gap and 65.663475% paired utilization; its 600-second field is a target/decision, not completion evidence."
+    "action": "execute_600s_frontier_treatment_without_more_analysis_loop",
+    "reason": "Recent wakes repeatedly reconciled/admitted the same 600s treatment and voluntarily handed off before generating a completed treatment sample. This creates avoidable idle boundaries and does not advance the single experimental variable."
   },
   "measurement_guard": {
     "rule": "Record only directly supported metrics; never infer completed duration from filenames, target fields, commit messages, connector latency, scheduler timestamps, or whole-turn wall time.",
     "status": "frontier-480-verified-600-pending",
-    "recovery": "Advance verified frontier only from durable evidence that explicitly supports a completed active block and its termination status."
+    "recovery": "Advance verified frontier only from durable evidence explicitly supporting a completed active block and termination status."
   },
   "experiment_integrity": {
     "single_changed_variable": "same-wake useful-work duration",
@@ -46,7 +46,7 @@
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
     "verified_frontier_paired_utilization": 0.65663475,
-    "fresh_check_path": "analysis/2026-09-23T1022-600-frontier-evidence-check.md",
-    "fresh_check_commit": "a4dac33021e5a75b926e4c73127ac4167f25f0fa"
+    "execution_gap_path": "analysis/2026-09-23T1025-treatment-execution-gap.md",
+    "execution_gap_commit": "54e566af18bc638d4958a61c02749ee936ea43bd"
   }
 }
