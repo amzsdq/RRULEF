@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T13:29:54+09:00",
+  "actual_start_time": "2026-09-23T14:34:42+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,14 +10,14 @@
   "pair_note": "Immediate predecessor has no directly observed work_end_time/active_work_sec; no boundary inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh-read README; identified and documented an observability deadlock: repeated 600s sensitivity/provenance analysis cannot create the missing direct duration observation while this execution surface exposes no trustworthy task-boundary timer. Added an exit rule: preserve 480s verified frontier, stop redundant arithmetic, spend wakes on substantive repo work, and attempt 600s only when direct elapsed/task-boundary timing is observable.",
+  "active_work_note": "Fresh-read README and canonical frontier. Performed substantive repository work: searched for direct 600s completion evidence (none found) and added a precise direct-observation promotion gate for the 600s frontier treatment. No duration fabricated from automation, connector, commit, or scheduler timestamps.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
   "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T13:32:00+09:00",
-  "scheduler_jitter_sec": 54,
+  "scheduled_next_wake": null,
+  "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 120,
@@ -25,11 +25,11 @@
     "comparator_sec": 600,
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
-    "action": "continue_substantive_work_until_direct_timer_available",
-    "reason": "The missing variable is direct duration observability. Repeating model arithmetic cannot advance the 600s experiment and consumes useful-work capacity."
+    "action": "prioritize_direct_600s_treatment_when_timer_observable_otherwise_continue_bounded_substantive_repo_work",
+    "reason": "A direct 600s completion plus following actual idle boundary is the next observation capable of changing the verified frontier; repeated sensitivity arithmetic is non-informative."
   },
   "measurement_guard": {
-    "rule": "Only DIRECT or DERIVED_VALID exact metrics enter exact paired evidence. Approximate active durations remain qualitative-only. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
+    "rule": "Only DIRECT or DERIVED_VALID exact metrics enter exact paired evidence. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
     "status": "frontier-480-verified-600-direct-timing-pending"
   },
   "experiment_integrity": {
@@ -45,12 +45,6 @@
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
     "verified_frontier_paired_utilization": 0.65663475,
-    "exact_historical_pair_count": 4,
-    "approximate_historical_pair_count_known_minimum": 1,
-    "valid_paired_evidence_table": "analysis/2026-09-23T1223-valid-paired-evidence-table.md",
-    "cutoff_identifiability_check": "analysis/2026-09-23T1305-cutoff-identifiability.md",
-    "utilization_sensitivity_600": "analysis/2026-09-23T1318-600s-utilization-sensitivity.md",
-    "observability_deadlock_exit": "analysis/2026-09-23T1330-observability-deadlock-exit.md",
-    "measurement_schema_audit": "analysis/2026-09-23T1223-measurement-schema-audit.md"
+    "frontier_promotion_gate": "analysis/2026-09-23T1434-frontier-promotion-gate.md"
   }
 }
