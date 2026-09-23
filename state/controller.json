@@ -9,19 +9,17 @@
       "access": "READ_ONLY",
       "role": "scheduler_semantics_and_lead_time_evidence",
       "observed_head": "c52fda90923fd751a5f01e34607f1075069af74b",
-      "observed_issue_1_comment_id": 5790969556,
-      "latest_assimilation": "Latest observed Issue #1 record at 16:38:43 KST is recovery identity research; its trusted scheduled pair reports +85s jitter but no new H1 lead/prearm policy evidence. Issue-tail watermark is tracked separately from commit head."
+      "observed_issue_1_comment_id": 5790969556
     },
     "amzsdq/workwork": {
       "access": "READ_ONLY",
       "role": "runtime_boundary_and_prearm_evidence",
-      "observed_head": "a57ee7a9ee7e1f891c21de395def5dea545c69f6",
-      "latest_assimilation": "Strict 16m is CLEAN_PASS_WAKE_OK. 18m W2 probe has start/prearm WRITE_OK/STATE_OK plus checkpoint-01 saved, but still no 18m duration PASS. Existing overlap probe observed CONCURRENT with 198s overlap when successor due preceded active close. No RRULEF frontier promotion from external duration evidence."
+      "observed_head": "a57ee7a9ee7e1f891c21de395def5dea545c69f6"
     }
   },
   "active_experiment": {
     "id": "H1_DUAL_ARM_CRASH_INSURANCE",
-    "status": "SAMPLE_1_AWAITING_FINAL_WAKE",
+    "status": "SAMPLE_2_IN_PROGRESS_PREARM_VERIFIED",
     "primary_variable": "start_of_turn_crash_insurance_prearm_enabled",
     "control": "final_rearm_only",
     "treatment": "prearm_at_start_plus_verified_final_rearm",
@@ -33,41 +31,31 @@
     "fixed_safety_margin_sec": 120,
     "admission_rule": "continue only when elapsed_sec + estimated_next_task_sec + close_reserve_sec + safety_margin_sec < target_runtime_sec; otherwise close smallest in-flight unit",
     "single_variable_guard": "Do not change runtime target, final lead, admission constants, external-source policy, or jitter policy during H1.",
-    "bootstrap": {
-      "classification": "BOOTSTRAP_CONTROL_PLANE_TEST",
-      "counts_as_h1_sample": false,
-      "reanchor_write_ok": true,
-      "reanchor_state_ok": true,
-      "reanchor_wake_ok": true,
-      "scheduled_for_kst": "2026-09-23T16:35:00+09:00",
-      "actual_start_kst": "2026-09-23T16:34:50+09:00",
-      "scheduler_jitter_sec": -10
-    },
     "sample_1": {
       "start_kst": "2026-09-23T16:34:50+09:00",
-      "prearm_for_kst": "2026-09-23T16:47:50+09:00",
-      "prearm_write_ok": true,
-      "prearm_state_ok": true,
-      "prearm_wake_ok": "SUPERSEDED_BY_VERIFIED_FINAL_REARM",
       "work_end_time_kst": "2026-09-23T16:39:40+09:00",
-      "run_elapsed_sec": 290,
-      "active_work_sec": null,
-      "active_work_note": "Exact useful-work seconds were not separately instrumented; elapsed is not promoted to active_work. Substantive units are artifact-backed.",
-      "tasks_completed": 9,
       "final_rearm_for_kst": "2026-09-23T16:42:40+09:00",
+      "actual_successor_start_kst": "2026-09-23T16:42:35+09:00",
+      "idle_gap_sec": 175,
+      "scheduler_jitter_sec": -5,
       "final_write_ok": true,
       "final_state_ok": true,
-      "final_wake_ok": "PENDING",
-      "close_result": "CLEAN_STATE_PENDING_WAKE",
-      "duration_frontier_effect": "NONE_H1_FRONTIER_FROZEN"
+      "final_wake_ok": true,
+      "result": "CLEAN_WAKE_OK"
+    },
+    "sample_2": {
+      "start_kst": "2026-09-23T16:42:35+09:00",
+      "prearm_for_kst": "2026-09-23T16:55:35+09:00",
+      "prearm_write_ok": true,
+      "prearm_state_ok": true,
+      "final_wake_ok": "NOT_YET_APPLICABLE"
     }
   },
   "rrulef_frontier": {
     "verified_active_frontier_sec": 480,
     "next_treatment_target_sec": 600,
     "promotion_requires_direct_rrulef_completion_evidence": true,
-    "promotion_status_during_h1": "FROZEN_TO_PRESERVE_ONE_VARIABLE_DISCIPLINE",
-    "note": "H1 may record duration descriptively but cannot promote the active-duration frontier while scheduler pre-arm is the changed variable."
+    "promotion_status_during_h1": "FROZEN_TO_PRESERVE_ONE_VARIABLE_DISCIPLINE"
   },
   "evidence_contract": {
     "write_ok_is_not_wake_ok": true,
@@ -88,5 +76,5 @@
     "condition": "H1 causes overlap, materially higher control overhead without recovery benefit, or lower long-run useful-work utilization",
     "target": "FINAL_REARM_ONLY"
   },
-  "updated_at": "2026-09-23T16:39:44+09:00"
+  "updated_at": "2026-09-23T16:43:30+09:00"
 }
