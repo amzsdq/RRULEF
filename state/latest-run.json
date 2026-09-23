@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T09:02:24+09:00",
+  "actual_start_time": "2026-09-23T09:11:30+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,25 +10,26 @@
   "pair_note": "Predecessor state has null work_end_time/active_work_sec, so this boundary cannot be closed without fabrication.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README/state read; repository structure and prior execution-gap evidence inspected; measurement-recovery analysis committed; commit history verified; recurring continuation secured before durable state. Exact task-boundary timing is not exposed, so active_work_sec is not fabricated.",
+  "active_work_note": "Fresh README/state read; instrumentation defect converted into an executable direct-boundary protocol; recurring continuation secured before durable-state write; analysis artifact committed. Exact task-boundary timestamps remain unavailable from the current tool surface, so active work is not fabricated.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 6,
+  "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T09:14:00+09:00",
+  "scheduled_next_wake": "2026-09-23T09:23:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
+    "current_elapsed_sec": null,
     "estimated_next_task_sec": 60,
     "handoff_safety_margin_sec": 120,
     "comparator_sec": 600,
     "action": "continue_sustained_useful_work_experiment",
-    "reason": "Measurement nulls are now treated as a recoverable instrumentation defect, not a reason to substitute surrogate timing or produce more short-duration sensitivity analysis. Same-wake useful-work duration remains the sole treatment variable."
+    "reason": "Do not spend another wake on short-duration sensitivity. Continue substantive same-wake work and aggregate only directly observed completed-task intervals when timestamps are exposed."
   },
   "measurement_guard": {
-    "rule": "Aggregate only directly observable completed-task durations; never substitute connector latency or whole-turn wall time for useful work.",
+    "rule": "Aggregate only directly observable completed-task durations; never substitute connector latency, scheduled time, or whole-turn wall time for useful work.",
     "status": "exact-task-boundary-timestamps-unavailable",
-    "recovery": "Capture explicit task-boundary timestamps whenever the runtime/tool surface directly exposes them; otherwise preserve null."
+    "recovery": "Use the direct task-boundary protocol in analysis/2026-09-23T0911-instrumentation-recovery-plan.md as soon as trustworthy timestamps are exposed."
   },
   "experiment_integrity": {
     "single_changed_variable": "same-wake useful-work duration",
@@ -41,8 +42,9 @@
   "evidence": {
     "analysis_paths": [
       "analysis/2026-09-23T0852-sustained-work-execution-gap.md",
-      "analysis/2026-09-23T0902-measurement-recovery.md"
+      "analysis/2026-09-23T0902-measurement-recovery.md",
+      "analysis/2026-09-23T0911-instrumentation-recovery-plan.md"
     ],
-    "latest_analysis_commit": "17c9f478634e38933f9185d2903857e4987b8629"
+    "latest_analysis_commit": "1b1e321466efc503f3925e7e2f7ad2d40000813d"
   }
 }
