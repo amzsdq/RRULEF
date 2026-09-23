@@ -16,7 +16,7 @@
       "access": "READ_ONLY",
       "role": "runtime_boundary_and_prearm_evidence",
       "observed_head": "e8ee581d9938d4d9d0a6c2f27d5ce52d2d0fd570",
-      "latest_assimilation": "18m W2 probe start only; WRITE_OK/STATE_OK yes, safe lower bound at start 16m; not an 18m PASS"
+      "latest_assimilation": "Strict 16m is CLEAN_PASS_WAKE_OK; new 18m W2 probe has only start/prearm WRITE_OK/STATE_OK so far. Existing overlap probe observed CONCURRENT with 198s overlap when successor due preceded active close. No RRULEF frontier promotion from external duration evidence."
     }
   },
   "active_experiment": {
@@ -55,7 +55,9 @@
   "rrulef_frontier": {
     "verified_active_frontier_sec": 480,
     "next_treatment_target_sec": 600,
-    "promotion_requires_direct_rrulef_completion_evidence": true
+    "promotion_requires_direct_rrulef_completion_evidence": true,
+    "promotion_status_during_h1": "FROZEN_TO_PRESERVE_ONE_VARIABLE_DISCIPLINE",
+    "note": "H1 may record duration descriptively but cannot promote the active-duration frontier while scheduler pre-arm is the changed variable."
   },
   "evidence_contract": {
     "write_ok_is_not_wake_ok": true,
@@ -76,5 +78,5 @@
     "condition": "H1 causes overlap, materially higher control overhead without recovery benefit, or lower long-run useful-work utilization",
     "target": "FINAL_REARM_ONLY"
   },
-  "updated_at": "2026-09-23T16:37:05+09:00"
+  "updated_at": "2026-09-23T16:38:23+09:00"
 }
