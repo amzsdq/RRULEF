@@ -1,23 +1,23 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T11:00:56+09:00",
+  "actual_start_time": "2026-09-23T11:12:42+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Immediate predecessor lacks directly observed work_end_time/active_work_sec; boundary remains unclosed rather than inferred.",
+  "pair_note": "Immediate predecessor still lacks directly observed work_end_time/active_work_sec; boundary is not inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README and canonical frontier evidence read; recent commit history checked to avoid repeating stale frontier archaeology. Recurring continuation was secured first. No fabricated duration is claimed.",
+  "active_work_note": "Fresh README and canonical frontier index read; recurring continuation secured before durable write; runs directory inspected for new evidence. No fabricated duration claimed.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
   "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T11:12:00+09:00",
-  "scheduler_jitter_sec": null,
+  "scheduled_next_wake": "2026-09-23T11:24:00+09:00",
+  "scheduler_jitter_sec": 42,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 120,
@@ -26,7 +26,7 @@
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
     "action": "continue_600s_frontier_treatment",
-    "reason": "Frontier evidence is stable and indexed. Do not spend further wakes re-proving 480s unless contradictory evidence appears; prioritize directly measurable chained useful work toward a completed 600s sample."
+    "reason": "Canonical frontier remains 480s and no direct 600s completion evidence was found. Continue useful work rather than re-deriving thresholds."
   },
   "measurement_guard": {
     "rule": "Record only directly supported metrics; never infer completed duration from filenames, target fields, commit messages, connector latency, scheduler timestamps, or whole-turn wall time.",
@@ -44,7 +44,6 @@
     "verified_frontier_path": "runs/2026-09-23T030454+0900-frontier-600.json",
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
-    "verified_frontier_paired_utilization": 0.65663475,
-    "latest_history_checked_through_commit": "ee143be82e42560b5929987200f935f6c1b9d790"
+    "verified_frontier_paired_utilization": 0.65663475
   }
 }
