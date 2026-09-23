@@ -1,30 +1,32 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T09:24:52+09:00",
+  "actual_start_time": "2026-09-23T09:35:10+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Predecessor still lacks directly observed work_end_time/active_work_sec; boundary remains uncloseable without fabrication.",
+  "pair_note": "Predecessor lacks directly observed work_end_time/active_work_sec; boundary remains uncloseable without fabrication.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README/state read; repository layout and accumulated analyses inspected; repeated instrumentation-plan loop terminated as diminishing-return work; observable-metrics admission decision committed; recurring continuation secured before this durable-state write. Current tool surface still lacks trustworthy per-task boundary timestamps.",
+  "active_work_note": "Fresh README/state read; clean active-duration evidence consolidated; highest directly verified clean active block located at 105 s with no forced stop; next-treatment contract created; recurring continuation secured before durable-state write. Exact per-task timing is not exposed by the current tool surface, so useful-work duration is not fabricated.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 6,
+  "tasks_completed": 8,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T09:36:00+09:00",
+  "scheduled_next_wake": "2026-09-23T09:47:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 60,
     "handoff_safety_margin_sec": 120,
     "comparator_sec": 600,
-    "action": "consolidate_observed_experiment_evidence",
-    "reason": "Instrumentation-plan variants are now low-value. Next wake should consolidate valid/invalid pairs, timeout outcomes, and highest directly observed safe active-work duration from durable history while preserving the same experimental variable."
+    "verified_active_frontier_sec": 105,
+    "next_informative_milestone_sec": 180,
+    "action": "execute_measured_active_duration_frontier_treatment",
+    "reason": "Consolidated clean pairs show 20s/319s=5.90%, 32s/304s=9.52%, and 105s/261s=28.69%. The next information gain is a directly observed same-wake active block above 105 s, preferably above 180 s, not another bookkeeping-sized handoff."
   },
   "measurement_guard": {
     "rule": "Record only directly observable metrics; never substitute connector latency, scheduler timestamps, or whole-turn wall time for useful work.",
@@ -41,11 +43,13 @@
   },
   "evidence": {
     "analysis_paths": [
-      "analysis/2026-09-23T0852-sustained-work-execution-gap.md",
-      "analysis/2026-09-23T0902-measurement-recovery.md",
-      "analysis/2026-09-23T0911-instrumentation-recovery-plan.md",
-      "analysis/2026-09-23T0925-measurement-surface-decision.md"
+      "analysis/2026-09-22T2227_sustained-work-break-even.md",
+      "analysis/2026-09-22T2339_clean-pair-and-admission.md",
+      "analysis/2026-09-22T2345_active-duration-admission.md",
+      "analysis/2026-09-22T2350_active-duration-treatment.md",
+      "analysis/2026-09-23T0935-evidence-consolidation.md",
+      "analysis/2026-09-23T0936-next-treatment-contract.md"
     ],
-    "latest_analysis_commit": "7713b6e810aa72c5009c92f1b9e910b423b71976"
+    "latest_analysis_commit": "0e546da588fa6c11cd71a8877bca2669e3ea3f3f"
   }
 }
