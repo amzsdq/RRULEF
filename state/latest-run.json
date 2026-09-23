@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T12:41:56+09:00",
+  "actual_start_time": "2026-09-23T12:54:26+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,14 +10,14 @@
   "pair_note": "Immediate predecessor has no directly observed work_end_time/active_work_sec; no boundary inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh-read README and performed a substantive evidence-heterogeneity audit. Recovered an additional clean historical pair (~90s active -> 468s idle -> 16.13%), showing the canonical exact-pair count of 4 is incomplete if read as an exhaustive pair count. Also confirmed idle cost varies materially across samples, so pooled utilization cannot identify a precise adaptive cutoff from active duration alone. Attempted to persist a dedicated analysis note, but that create-file write was blocked by tool safety checks; this canonical checkpoint records the finding instead.",
+  "active_work_note": "Fresh-read README, audited the run inventory and paired-evidence classification, and corrected a confidence-class conflation: the ~90s/468s/16.13% historical pair is valid qualitative evidence but its active duration is approximate, so it must not increase the exact-pair count. Exact paired evidence remains n=4; approximate paired evidence is tracked separately. Updated the canonical paired-evidence table accordingly.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
   "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T12:54:00+09:00",
-  "scheduler_jitter_sec": 176,
+  "scheduled_next_wake": "2026-09-23T13:07:00+09:00",
+  "scheduler_jitter_sec": 26,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 120,
@@ -25,11 +25,11 @@
     "comparator_sec": 600,
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
-    "action": "continue_pair_provenance_audit_then_direct_instrumentation",
-    "reason": "Historical pair pool is heterogeneous and the current n=4 count is not exhaustive; retain pair-level idle cost and provenance before any adaptive-cutoff fit. 480s remains directly verified and 600s remains the next direct-completion milestone."
+    "action": "continue_direct_instrumentation_and_pair_provenance_audit",
+    "reason": "Do not mix approximate and exact active-duration evidence. Exact pair count remains four; sparse heterogeneous idle costs still preclude precise adaptive-cutoff fitting. Preserve the 480s verified frontier and seek direct 600s completion evidence."
   },
   "measurement_guard": {
-    "rule": "Only DIRECT or DERIVED_VALID metrics enter paired evidence. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
+    "rule": "Only DIRECT or DERIVED_VALID exact metrics enter exact paired evidence. Approximate active durations may be retained in a separate qualitative stratum. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
     "status": "frontier-480-verified-600-observability-blocked"
   },
   "experiment_integrity": {
@@ -45,14 +45,14 @@
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
     "verified_frontier_paired_utilization": 0.65663475,
-    "historical_pair_count_status": "known-at-least-5-clean-or-exact-pairs; exhaustive provenance audit pending",
-    "newly_recovered_pair_path": "analysis/2026-09-22T2306-closed-pair-and-utilization.md",
-    "newly_recovered_pair_active_sec": 90,
-    "newly_recovered_pair_idle_sec": 468,
-    "newly_recovered_pair_utilization": 0.1613,
-    "evidence_table_correction": "analysis/2026-09-23T1226-evidence-table-correction.md",
-    "measurement_schema_audit": "analysis/2026-09-23T1223-measurement-schema-audit.md",
+    "exact_historical_pair_count": 4,
+    "approximate_historical_pair_count_known_minimum": 1,
+    "approximate_pair_path": "analysis/2026-09-22T2306-closed-pair-and-utilization.md",
+    "approximate_pair_active_sec": 90,
+    "approximate_pair_idle_sec": 468,
+    "approximate_pair_utilization": 0.1613,
     "valid_paired_evidence_table": "analysis/2026-09-23T1223-valid-paired-evidence-table.md",
+    "measurement_schema_audit": "analysis/2026-09-23T1223-measurement-schema-audit.md",
     "adaptive_cutoff_evidence_check": "analysis/2026-09-23T1223-adaptive-cutoff-evidence-check.md",
     "useful_work_queue": "analysis/2026-09-23T1222-measurement-workqueue.md"
   }
