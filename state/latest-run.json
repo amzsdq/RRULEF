@@ -1,35 +1,35 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T09:11:30+09:00",
+  "actual_start_time": "2026-09-23T09:24:52+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Predecessor state has null work_end_time/active_work_sec, so this boundary cannot be closed without fabrication.",
+  "pair_note": "Predecessor still lacks directly observed work_end_time/active_work_sec; boundary remains uncloseable without fabrication.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README/state read; instrumentation defect converted into an executable direct-boundary protocol; recurring continuation secured before durable-state write; analysis artifact committed. Exact task-boundary timestamps remain unavailable from the current tool surface, so active work is not fabricated.",
+  "active_work_note": "Fresh README/state read; repository layout and accumulated analyses inspected; repeated instrumentation-plan loop terminated as diminishing-return work; observable-metrics admission decision committed; recurring continuation secured before this durable-state write. Current tool surface still lacks trustworthy per-task boundary timestamps.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 5,
+  "tasks_completed": 6,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T09:23:00+09:00",
+  "scheduled_next_wake": "2026-09-23T09:36:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 60,
     "handoff_safety_margin_sec": 120,
     "comparator_sec": 600,
-    "action": "continue_sustained_useful_work_experiment",
-    "reason": "Do not spend another wake on short-duration sensitivity. Continue substantive same-wake work and aggregate only directly observed completed-task intervals when timestamps are exposed."
+    "action": "consolidate_observed_experiment_evidence",
+    "reason": "Instrumentation-plan variants are now low-value. Next wake should consolidate valid/invalid pairs, timeout outcomes, and highest directly observed safe active-work duration from durable history while preserving the same experimental variable."
   },
   "measurement_guard": {
-    "rule": "Aggregate only directly observable completed-task durations; never substitute connector latency, scheduled time, or whole-turn wall time for useful work.",
-    "status": "exact-task-boundary-timestamps-unavailable",
-    "recovery": "Use the direct task-boundary protocol in analysis/2026-09-23T0911-instrumentation-recovery-plan.md as soon as trustworthy timestamps are exposed."
+    "rule": "Record only directly observable metrics; never substitute connector latency, scheduler timestamps, or whole-turn wall time for useful work.",
+    "status": "measurement-surface-limited",
+    "recovery": "Resume exact completed-task interval aggregation if trustworthy task-boundary timestamps become exposed; until then continue substantive work and leave unavailable timing metrics null."
   },
   "experiment_integrity": {
     "single_changed_variable": "same-wake useful-work duration",
@@ -43,8 +43,9 @@
     "analysis_paths": [
       "analysis/2026-09-23T0852-sustained-work-execution-gap.md",
       "analysis/2026-09-23T0902-measurement-recovery.md",
-      "analysis/2026-09-23T0911-instrumentation-recovery-plan.md"
+      "analysis/2026-09-23T0911-instrumentation-recovery-plan.md",
+      "analysis/2026-09-23T0925-measurement-surface-decision.md"
     ],
-    "latest_analysis_commit": "1b1e321466efc503f3925e7e2f7ad2d40000813d"
+    "latest_analysis_commit": "7713b6e810aa72c5009c92f1b9e910b423b71976"
   }
 }
