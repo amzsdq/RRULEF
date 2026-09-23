@@ -1,22 +1,22 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T10:45:22+09:00",
+  "actual_start_time": "2026-09-23T11:00:56+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Immediate predecessor still lacks directly observed work_end_time/active_work_sec; boundary remains unclosed rather than inferred.",
+  "pair_note": "Immediate predecessor lacks directly observed work_end_time/active_work_sec; boundary remains unclosed rather than inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README/state/frontier read completed. Added state/frontier-evidence.json as a canonical evidence shortcut so future wakes can avoid repeated threshold/admission archaeology and spend more of the wake on useful treatment work. No fabricated duration is claimed.",
+  "active_work_note": "Fresh README and canonical frontier evidence read; recent commit history checked to avoid repeating stale frontier archaeology. Recurring continuation was secured first. No fabricated duration is claimed.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 5,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T10:58:00+09:00",
+  "scheduled_next_wake": "2026-09-23T11:12:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
@@ -26,7 +26,7 @@
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
     "action": "continue_600s_frontier_treatment",
-    "reason": "Canonical evidence shortcut now exists. Future wakes should read it after README and prioritize chained useful work toward a directly completed 600s sample rather than re-proving the 480s frontier."
+    "reason": "Frontier evidence is stable and indexed. Do not spend further wakes re-proving 480s unless contradictory evidence appears; prioritize directly measurable chained useful work toward a completed 600s sample."
   },
   "measurement_guard": {
     "rule": "Record only directly supported metrics; never infer completed duration from filenames, target fields, commit messages, connector latency, scheduler timestamps, or whole-turn wall time.",
@@ -45,6 +45,6 @@
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
     "verified_frontier_paired_utilization": 0.65663475,
-    "execution_gap_path": "analysis/2026-09-23T1025-treatment-execution-gap.md"
+    "latest_history_checked_through_commit": "ee143be82e42560b5929987200f935f6c1b9d790"
   }
 }
