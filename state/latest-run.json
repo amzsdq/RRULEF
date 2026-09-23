@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T09:58:21+09:00",
+  "actual_start_time": "2026-09-23T10:22:01+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,14 +10,14 @@
   "pair_note": "Immediate predecessor lacks directly observed work_end_time/active_work_sec; this boundary remains uncloseable without fabrication.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README/state/history reconciliation found canonical frontier regression: durable valid evidence supports a completed 480-second predecessor, while state had regressed to 105 seconds. Reconciled frontier without fabricating current-turn useful-work duration.",
+  "active_work_note": "Fresh README/state/frontier evidence check completed. No explicit completed 600-second active block was found, so verified frontier remains 480 seconds and 600 seconds remains the next treatment target.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 8,
+  "tasks_completed": 5,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T10:11:00+09:00",
-  "scheduler_jitter_sec": 21,
+  "scheduled_next_wake": "2026-09-23T10:25:00+09:00",
+  "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 120,
@@ -26,11 +26,11 @@
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
     "action": "execute_600s_frontier_treatment",
-    "reason": "Durable valid run evidence records a completed 480-second predecessor with no timeout/forced stop and a 251-second following idle gap (65.663475% paired utilization). The previous 105/180 frontier state was stale. The 600-second artifact is target/admission evidence, not proof of completed 600-second work, so 600 remains the next treatment target rather than a verified frontier."
+    "reason": "Fresh repository evidence check found no explicit completed active_work_sec=600 record. Existing durable frontier record proves a 480-second predecessor with 251-second following idle gap and 65.663475% paired utilization; its 600-second field is a target/decision, not completion evidence."
   },
   "measurement_guard": {
     "rule": "Record only directly supported metrics; never infer completed duration from filenames, target fields, commit messages, connector latency, scheduler timestamps, or whole-turn wall time.",
-    "status": "frontier-reconciled",
+    "status": "frontier-480-verified-600-pending",
     "recovery": "Advance verified frontier only from durable evidence that explicitly supports a completed active block and its termination status."
   },
   "experiment_integrity": {
@@ -46,7 +46,7 @@
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
     "verified_frontier_paired_utilization": 0.65663475,
-    "reconciliation_path": "analysis/2026-09-23T0958-frontier-state-reconciliation.md",
-    "reconciliation_commit": "ed27c4c55a7935c07956db55a247938d979df329"
+    "fresh_check_path": "analysis/2026-09-23T1022-600-frontier-evidence-check.md",
+    "fresh_check_commit": "a4dac33021e5a75b926e4c73127ac4167f25f0fa"
   }
 }
