@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T13:05:49+09:00",
+  "actual_start_time": "2026-09-23T13:17:49+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,13 +10,13 @@
   "pair_note": "Immediate predecessor has no directly observed work_end_time/active_work_sec; no boundary inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh-read README and completed the next useful-work item: cutoff-identifiability analysis from the four exact historical pairs. The data identify the coarse benefit of longer same-wake useful work under hundreds-of-seconds boundary idle, but do not identify a precise adaptive cutoff because active duration and following idle cost co-vary and 600s lacks direct completion evidence.",
+  "active_work_note": "Fresh-read README; performed controlled 480s-vs-600s utilization sensitivity using all four exact observed idle costs. Holding idle fixed, +120s useful work raises utilization by 4.84-5.21 percentage points across the observed 251-319s idle range. This is arithmetic sensitivity only and does not promote 600s without direct completion evidence.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
   "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T13:18:00+09:00",
+  "scheduled_next_wake": "2026-09-23T13:29:00+09:00",
   "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
@@ -26,7 +26,7 @@
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
     "action": "continue_direct_instrumentation_toward_600s",
-    "reason": "Exact n=4 supports longer useful-work blocks but cannot identify a numeric optimum. Preserve the 480s verified frontier and seek direct 600s completion evidence without changing another mechanism."
+    "reason": "Controlled sensitivity shows a material 4.84-5.21pp utilization gain from 480s to 600s if boundary idle is held fixed. This strengthens the value of the 600s single-variable treatment but is not completion evidence."
   },
   "measurement_guard": {
     "rule": "Only DIRECT or DERIVED_VALID exact metrics enter exact paired evidence. Approximate active durations remain qualitative-only. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
@@ -49,6 +49,7 @@
     "approximate_historical_pair_count_known_minimum": 1,
     "valid_paired_evidence_table": "analysis/2026-09-23T1223-valid-paired-evidence-table.md",
     "cutoff_identifiability_check": "analysis/2026-09-23T1305-cutoff-identifiability.md",
+    "utilization_sensitivity_600": "analysis/2026-09-23T1318-600s-utilization-sensitivity.md",
     "measurement_schema_audit": "analysis/2026-09-23T1223-measurement-schema-audit.md"
   }
 }
