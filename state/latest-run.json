@@ -1,20 +1,20 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T14:34:42+09:00",
+  "actual_start_time": "2026-09-23T15:33:29+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
   "paired_utilization": null,
   "pair_valid": false,
-  "pair_note": "Immediate predecessor has no directly observed work_end_time/active_work_sec; no boundary inferred.",
+  "pair_note": "Immediate predecessor still has no directly observed work_end_time/active_work_sec; no boundary inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh-read README and canonical frontier. Performed substantive repository work: searched for direct 600s completion evidence (none found) and added a precise direct-observation promotion gate for the 600s frontier treatment. No duration fabricated from automation, connector, commit, or scheduler timestamps.",
+  "active_work_note": "Fresh-read README and canonical frontier. Performed substantive repository work by replacing repeated sensitivity/gate analysis with an information-gain work priority that targets boundary closure, new direct evidence, and contradictory-state cleanup while direct timing is unavailable.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 3,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
   "scheduled_next_wake": null,
   "scheduler_jitter_sec": null,
@@ -25,8 +25,8 @@
     "comparator_sec": 600,
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
-    "action": "prioritize_direct_600s_treatment_when_timer_observable_otherwise_continue_bounded_substantive_repo_work",
-    "reason": "A direct 600s completion plus following actual idle boundary is the next observation capable of changing the verified frontier; repeated sensitivity arithmetic is non-informative."
+    "action": "continue_bounded_information_gain_repo_work_until_direct_timing_is_observable",
+    "reason": "Repeated arithmetic has zero marginal information gain. Prefer work capable of closing a real boundary, changing frontier evidence, or preventing evidence misclassification."
   },
   "measurement_guard": {
     "rule": "Only DIRECT or DERIVED_VALID exact metrics enter exact paired evidence. Never infer completed duration from targets, filenames, commit/connector latency, scheduler timestamps, or whole-turn wall time.",
@@ -45,6 +45,6 @@
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
     "verified_frontier_paired_utilization": 0.65663475,
-    "frontier_promotion_gate": "analysis/2026-09-23T1434-frontier-promotion-gate.md"
+    "next_informative_work": "analysis/2026-09-23T1533-next-informative-work.md"
   }
 }
