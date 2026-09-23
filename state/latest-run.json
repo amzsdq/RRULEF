@@ -1,46 +1,37 @@
 {
   "schema": 1,
   "experiment": "H1_DUAL_ARM_CRASH_INSURANCE",
-  "actual_start_time": "2026-09-23T16:34:50+09:00",
-  "previous_work_end_time": null,
-  "idle_gap_sec": null,
-  "pair_valid": false,
-  "pair_note": "Immediate predecessor has no directly observed work_end_time; no idle boundary inferred.",
+  "actual_start_time": "2026-09-23T16:42:35+09:00",
+  "previous_work_end_time": "2026-09-23T16:39:40+09:00",
+  "idle_gap_sec": 175,
+  "pair_valid": true,
+  "pair_note": "Direct predecessor work_end_time and scheduled automation invocation are available; sample 1 final wake is retrospectively closed WAKE_OK.",
   "active_work_sec": null,
-  "active_work_complete": true,
-  "active_work_note": "Exact useful-work seconds were not separately instrumented; elapsed is not relabeled as active work. Nine substantive research/control units were durably completed during the turn.",
-  "work_end_time": "2026-09-23T16:39:40+09:00",
-  "handoff_overhead_sec": 4,
-  "run_elapsed_sec": 290,
-  "tasks_completed": 9,
+  "active_work_complete": false,
+  "active_work_note": "Sample 2 is in progress; exact useful-work seconds are not inferred from elapsed time.",
+  "work_end_time": null,
+  "handoff_overhead_sec": null,
+  "run_elapsed_sec": null,
+  "tasks_completed": 3,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T16:42:40+09:00",
-  "scheduler_jitter_sec": -10,
+  "scheduled_next_wake": "2026-09-23T16:55:35+09:00",
+  "scheduler_jitter_sec": -5,
   "scheduler": {
-    "prearm_for": "2026-09-23T16:47:50+09:00",
+    "prior_final_rearm_for": "2026-09-23T16:42:40+09:00",
+    "prior_final_wake_ok": true,
+    "prearm_for": "2026-09-23T16:55:35+09:00",
     "prearm_write_ok": true,
     "prearm_state_ok": true,
-    "prearm_disposition": "SUPERSEDED_BY_VERIFIED_FINAL_REARM",
-    "final_rearm_for": "2026-09-23T16:42:40+09:00",
-    "final_write_ok": true,
-    "final_state_ok": true,
-    "final_wake_ok": "PENDING",
+    "prearm_wake_ok": "PENDING_OR_SUPERSEDED_BY_FINAL_REARM",
     "overlap_observed": false
   },
   "decision": {
-    "action": "CONTINUE_H1_SAMPLE_SERIES",
-    "reason": "Sample 1 proves clean dual-arm state transition through final live verification, but the following actual wake is still required for WAKE_OK. Three clean H1 samples are required before considering a separate bounded value/fault test.",
+    "action": "CONTINUE_H1_SAMPLE_2",
+    "reason": "Sample 1 now has direct WAKE_OK and idle_gap=175s. Sample 2 prearm was written and independently live-verified. Continue substantive H1 work before final authoritative rearm.",
     "duration_frontier_effect": "NONE_H1_FRONTIER_FROZEN"
-  },
-  "external_evidence": {
-    "test_issue_1_comment_watermark": 5790969556,
-    "workwork_commit_watermark": "a57ee7a9ee7e1f891c21de395def5dea545c69f6",
-    "workwork_16m": "CLEAN_PASS_WAKE_OK supporting only",
-    "workwork_18m": "IN_PROGRESS checkpoint only, not PASS",
-    "workwork_overlap": "CONCURRENT 198s historical external constraint"
   },
   "measurement_guard": {
     "rule": "Only direct or validly derived exact metrics enter exact paired evidence. Elapsed is not automatically useful work; external duration success does not promote RRULEF frontier.",
-    "status": "H1_SAMPLE_1_CLEAN_STATE_PENDING_WAKE"
+    "status": "H1_SAMPLE_1_CLEAN_WAKE_OK_SAMPLE_2_PREARM_VERIFIED"
   }
 }
