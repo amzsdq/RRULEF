@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T12:10:34+09:00",
+  "actual_start_time": "2026-09-23T12:22:04+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,14 +10,14 @@
   "pair_note": "Immediate predecessor lacks directly observed work_end_time/active_work_sec; boundary is not inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README/state/history inspection isolated the actual blocker: this execution surface has no trustworthy monotonic active-work timer or useful-task boundary callback. Repeated pending checkpoints cannot manufacture a valid 600s sample. A durable blocker analysis was committed; future wakes should do concrete repository work rather than re-prove pending status.",
+  "active_work_note": "Performed concrete repository work instead of repeating frontier verification: fresh-read README/state, inspected repository work surface, created a bounded useful-work queue, and audited canonical frontier evidence/source. Active duration remains unobservable on this runtime surface.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 4,
+  "tasks_completed": 5,
   "timeout_or_forced_stop": false,
   "scheduled_next_wake": "2026-09-23T12:23:00+09:00",
-  "scheduler_jitter_sec": -146,
+  "scheduler_jitter_sec": null,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 120,
@@ -25,8 +25,8 @@
     "comparator_sec": 600,
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
-    "action": "stop_repeat_verification_and_do_concrete_repo_work_until_direct_timer_exists",
-    "reason": "The missing variable is direct runtime observability, not additional frontier analysis. Preserve 480s frontier and avoid fabricating duration."
+    "action": "continue_concrete_repo_work_from_measurement_workqueue",
+    "reason": "Duration observability is blocked, so useful bounded repository tasks provide more value than repeated pending-status checks."
   },
   "measurement_guard": {
     "rule": "Record only directly supported metrics; never infer completed duration from filenames, target fields, commit messages, connector latency, scheduler timestamps, or whole-turn wall time.",
@@ -45,6 +45,7 @@
     "verified_frontier_active_sec": 480,
     "verified_frontier_following_idle_sec": 251,
     "verified_frontier_paired_utilization": 0.65663475,
-    "runtime_observability_blocker": "analysis/2026-09-23T1210-runtime-observability-blocker.md"
+    "runtime_observability_blocker": "analysis/2026-09-23T1210-runtime-observability-blocker.md",
+    "useful_work_queue": "analysis/2026-09-23T1222-measurement-workqueue.md"
   }
 }
