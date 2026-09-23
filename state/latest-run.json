@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment": "baseline-a-active-work-duration",
-  "actual_start_time": "2026-09-23T11:25:03+09:00",
+  "actual_start_time": "2026-09-23T11:38:53+09:00",
   "previous_work_end_time": null,
   "previous_active_work_sec": null,
   "idle_gap_sec": null,
@@ -10,14 +10,14 @@
   "pair_note": "Immediate predecessor still lacks directly observed work_end_time/active_work_sec; boundary is not inferred.",
   "active_work_sec": null,
   "active_work_complete": false,
-  "active_work_note": "Fresh README and canonical frontier index read; runs directory and repository search checked for direct 600s completion evidence; none found. Recurring continuation secured before durable write. No fabricated duration claimed.",
+  "active_work_note": "Fresh README and canonical state read; recent commit history checked for new treatment evidence. No directly supported completed 600s interval found. Recurring continuation secured before durable write; unsupported duration is not fabricated.",
   "work_end_time": null,
   "handoff_overhead_sec": null,
   "run_elapsed_sec": null,
-  "tasks_completed": 5,
+  "tasks_completed": 4,
   "timeout_or_forced_stop": false,
-  "scheduled_next_wake": "2026-09-23T11:37:00+09:00",
-  "scheduler_jitter_sec": 63,
+  "scheduled_next_wake": "2026-09-23T11:50:00+09:00",
+  "scheduler_jitter_sec": 113,
   "decision": {
     "current_elapsed_sec": null,
     "estimated_next_task_sec": 120,
@@ -26,7 +26,7 @@
     "verified_active_frontier_sec": 480,
     "next_informative_milestone_sec": 600,
     "action": "continue_600s_frontier_treatment",
-    "reason": "Canonical frontier remains 480s; repository search found no directly observed completed 600s active-work interval. Keep the single changed variable and continue useful work rather than optimize scheduler jitter."
+    "reason": "No new direct 600s completion evidence; preserve the single changed variable and continue useful work rather than optimize scheduler jitter."
   },
   "measurement_guard": {
     "rule": "Record only directly supported metrics; never infer completed duration from filenames, target fields, commit messages, connector latency, scheduler timestamps, or whole-turn wall time.",
